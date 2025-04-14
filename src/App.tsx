@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ConfigProvider } from "antd";
+
+import { Projects, LandingPage } from "pages";
+import { MainLayout } from "components/layouts/MainLayout";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <ConfigProvider
+            theme={{
+                components: {
+                    Button: {
+                        // defaultColor: "#d9d9d9",
+                        // colorPrimary: "var(--background)",
+                        // colorPrimaryHover: "var(--bgHoverColorButton)",
+                        // colorPrimaryActive: "#0000001a",
+                        // textHoverBg: "#0000001a",
+                        // colorPrimaryBg: "var(--bgColorButton)",
+                        // contentFontSizeSM: 10,
+                        // contentLineHeightSM: 1.5,
+                        // paddingBlockSM: 8,
+                        // paddingInlineSM: 20,
+                        // controlHeightSM: 32,
+                        // contentFontSize: 12,
+                        // contentLineHeight: 1.5,
+                        // paddingBlock: 10,
+                        // paddingInline: 24,
+                        // controlHeight: 36,
+                        // contentFontSizeLG: 14,
+                        // contentLineHeightLG: 22 / 14,
+                        // paddingBlockLG: 13,
+                        // paddingInlineLG: 32,
+                        // controlHeightLG: 40,
+                    },
+                },
+            }}
+        >
+            <BrowserRouter>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <MainLayout>
+                                <LandingPage />
+                            </MainLayout>
+                        }
+                    />
+                    <Route
+                        path="/projects"
+                        element={
+                            <MainLayout>
+                                <Projects />
+                            </MainLayout>
+                        }
+                    />
+                </Routes>
+            </BrowserRouter>
+        </ConfigProvider>
+    );
 }
 
-export default App
+export default App;
