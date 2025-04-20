@@ -6,20 +6,7 @@ const { Paragraph } = AntTypography;
 
 type TypographyProps = {
     children: React.ReactNode;
-    variant?:
-        | "h1"
-        | "h2"
-        | "h3"
-        | "h4"
-        | "h5"
-        | "h6"
-        | "body"
-        | "body1"
-        | "body2"
-        | "body3"
-        | "body4"
-        | "body5"
-        | "label1";
+    variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body" | "body1" | "body2" | "body3" | "body4" | "label1";
     rootClassName?: string;
     style?: React.CSSProperties;
     align?: React.CSSProperties["textAlign"];
@@ -146,6 +133,12 @@ const StyledTypography = styled(Paragraph)`
     &.hatemen-body3 {
         color: var(--secondary);
         font-size: 16px;
+        line-height: 28px;
+        font-family: "Montserrat", sans-serif;
+    }
+    &.hatemen-body4 {
+        color: var(--secondary);
+        font-size: 12px;
         line-height: 28px;
         font-family: "Montserrat", sans-serif;
     }

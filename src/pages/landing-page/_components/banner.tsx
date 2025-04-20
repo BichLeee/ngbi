@@ -11,8 +11,8 @@ export const Banner = () => {
             <Footer>
                 <Flex justify="space-between" align="center">
                     <Name gap={20}>
-                        <span>{creatingAnimatedText({ text: "Ngoc".split("") })}</span>
-                        <span>{creatingAnimatedText({ text: "Bich".split("") })}</span>
+                        <div>{creatingAnimatedText({ text: "Ngoc".split("") })}</div>
+                        <div>{creatingAnimatedText({ text: "Bich".split("") })}</div>
                     </Name>
                     <Description gap={5} wrap="wrap">
                         {creatingAnimatedText({
@@ -61,7 +61,7 @@ const Footer = styled.div`
     left: 0;
     right: 0;
     height: 100px;
-    padding-inline: 90px;
+    padding-inline: var(--page-padding);
     backdrop-filter: brightness(0.5);
 `;
 
@@ -86,6 +86,10 @@ const Name = styled(Flex)`
     font-weight: 700;
     height: 100px;
     overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+        font-size: 60px;
+    }
 `;
 
 const Description = styled(Flex)`
@@ -94,6 +98,10 @@ const Description = styled(Flex)`
     overflow: hidden;
     max-width: 250px;
     padding-left: 50px;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const NextArrowStyled = styled(NextArrow)`
@@ -111,5 +119,9 @@ const NextArrowStyled = styled(NextArrow)`
         100% {
             transform: translateY(10px);
         }
+    }
+
+    @media screen and (max-width: 768px) {
+        display: none;
     }
 `;

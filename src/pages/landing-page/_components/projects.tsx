@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Typography } from "components/elements";
 import { ScribbleUnderline } from "assets/svgs";
-import { Carousel } from "components/modules";
+import { Carousel } from "components/elements";
 
 import tiktok from "assets/images/tiktok.jpeg";
 import jobstreet from "assets/images/jobstreet.jpeg";
@@ -41,7 +41,7 @@ export const Projects = () => {
             title: "Lovely Paws",
             description: (
                 <p>
-                    The design of a website selling pet products and services. <br />
+                    Design of a website selling pet products and services. <br />
                     <StyledLink
                         target="_blank"
                         to="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1"
@@ -57,8 +57,10 @@ export const Projects = () => {
         <Container>
             <Flex vertical gap={50}>
                 <Flex gap={20} vertical align="center" justify="center">
-                    <Typography variant="h5">Real works, real results</Typography>
-                    <Typography variant="h2" color="#fff">
+                    <Typography variant="h5" align="center">
+                        Real works, real results
+                    </Typography>
+                    <Typography variant="h2" color="#fff" align="center">
                         My{" "}
                         <span style={{ position: "relative" }}>
                             Projects <StyledUnderline />

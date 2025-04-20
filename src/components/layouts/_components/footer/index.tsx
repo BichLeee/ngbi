@@ -24,7 +24,7 @@ export const Footer = () => {
             </Flex>
             <Flex align="center" justify="center" gap={30}>
                 <NavItem to="/">Overview</NavItem>
-                <NavItem to="/projects">Detail</NavItem>
+                <NavItem to="/exp">Experience</NavItem>
             </Flex>
             <Typography variant="body1" align="center">
                 ngbi ©. Website created with ❤️ by NgocBich

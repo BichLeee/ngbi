@@ -1,4 +1,4 @@
-import { Col, Flex, Row } from "antd";
+import { Flex } from "antd";
 import styled from "styled-components";
 
 import { Typography } from "components/elements";
@@ -24,7 +24,7 @@ export const Highlight = () => {
                         <Typography variant="body">
                             <b>Software Engineer</b>
                             <br />
-                            2020-2024
+                            09/2020 - 09/2024
                         </Typography>
                     </Flex>
                 </Card>

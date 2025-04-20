@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ConfigProvider } from "antd";
 
-import { Projects, LandingPage } from "pages";
+import { LandingPage, Experience } from "pages";
 import { MainLayout } from "components/layouts/MainLayout";
 import "./App.css";
 
@@ -47,10 +47,10 @@ function App() {
                         }
                     />
                     <Route
-                        path="/projects"
+                        path="/exp"
                         element={
                             <MainLayout>
-                                <Projects />
+                                <Experience />
                             </MainLayout>
                         }
                     />

@@ -72,7 +72,7 @@ const Container = styled.div`
     position: relative;
     margin-top: calc(100vw * 0.13);
     margin-bottom: calc(100vw * 0.06);
-    padding-inline: 90px;
+    padding-inline: var(--page-padding);
 `;
 
 const BigText = styled.span`

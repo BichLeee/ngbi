@@ -1,11 +1,11 @@
 import { Col, Flex, Row } from "antd";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { Typography } from "components/elements";
 import contactImage1 from "assets/images/contact1.jpg";
 import contactImage2 from "assets/images/contact2.png";
 import linkedin from "assets/images/linkedin.png";
-import { Link } from "react-router-dom";
 
 export const Contact = () => {
     return (

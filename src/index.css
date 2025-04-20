@@ -4,6 +4,11 @@
     --max-width: 1550px;
     --primary: #ffb4dc;
     --secondary: #fff;
+    --page-padding: 90px;
+
+    @media (max-width: 768px) {
+        --page-padding: 20px;
+    }
 }
 
 html,
@@ -27,6 +32,6 @@ body {
 }
 
 a {
-    color: inherit;
+    color: #fff;
     text-decoration: none;
 }

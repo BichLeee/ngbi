@@ -1,2 +1,2 @@
 export * from "./landing-page";
-export * from "./projects";
+export * from "./experience";

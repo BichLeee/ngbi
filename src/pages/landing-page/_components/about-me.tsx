@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Typography } from "components/elements";
 import image1 from "assets/images/NB1.jpg";
 import image2 from "assets/images/NB2.jpg";
-import { ScribbleCircle } from "assets/svgs";
+import { ScribbleCircle } from "assets/svgs/scribble-circle.svg";
 
 export const AboutMe = () => {
     return (
@@ -81,5 +81,4 @@ const StyledCircle = styled(ScribbleCircle)`
     height: 114%;
     top: -7%;
     left: -18%;
-    z-index: -1;
 `;
