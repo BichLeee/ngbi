@@ -8,43 +8,51 @@ import { Carousel } from "components/modules";
 import tiktok from "assets/images/tiktok.jpeg";
 import jobstreet from "assets/images/jobstreet.jpeg";
 import lovelyPaws from "assets/images/lovely-paws.jpeg";
-
-const projects = [
-    {
-        image: tiktok,
-        title: "TikTok",
-        description: (
-            <p>
-                A clone of TikTok <br />
-                <a href="https://github.com/username/tiktok-clone">Github link</a>
-            </p>
-        ),
-    },
-    {
-        image: jobstreet,
-        title: "Jobstreet",
-        description: (
-            <p>
-                A clone of Jobstreet - a job listing website <br />
-                <a href="https://github.com/SEC-Jobstreet">Github link</a>
-            </p>
-        ),
-    },
-    {
-        image: lovelyPaws,
-        title: "Lovely Paws",
-        description: (
-            <p>
-                The design of a website selling pet products and services. <br />
-                <a href="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1">
-                    Figma link
-                </a>
-            </p>
-        ),
-    },
-];
+import { Link } from "react-router-dom";
 
 export const Projects = () => {
+    const projects = [
+        {
+            image: tiktok,
+            title: "TikTok",
+            description: (
+                <p>
+                    A clone of TikTok <br />
+                    <StyledLink target="_blank" to="https://github.com/BichLeee/tiktok-ui">
+                        Github link
+                    </StyledLink>
+                </p>
+            ),
+        },
+        {
+            image: jobstreet,
+            title: "Jobstreet",
+            description: (
+                <p>
+                    A clone of Jobstreet - a job listing website <br />
+                    <StyledLink target="_blank" to="https://github.com/SEC-Jobstreet">
+                        Github link
+                    </StyledLink>
+                </p>
+            ),
+        },
+        {
+            image: lovelyPaws,
+            title: "Lovely Paws",
+            description: (
+                <p>
+                    The design of a website selling pet products and services. <br />
+                    <StyledLink
+                        target="_blank"
+                        to="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1"
+                    >
+                        Figma link
+                    </StyledLink>
+                </p>
+            ),
+        },
+    ];
+
     return (
         <Container>
             <Flex vertical gap={50}>
@@ -106,4 +114,8 @@ const Image = styled.img`
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
+`;
+
+const StyledLink = styled(Link)`
+    color: #ffb4dc !important;
 `;
