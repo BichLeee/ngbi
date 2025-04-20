@@ -29,7 +29,7 @@ export const Header = () => {
                         Overview
                     </Link>
                     <Link className={cx("nav-item", { active: pathname === "/projects" })} to="/projects">
-                        Projects
+                        Detail
                     </Link>
                     <Flex align="center" gap={16}>
                         <ContactItem icon={<LogoLinkedin />} link="https://www.linkedin.com/in/bích-lê-sophie" />

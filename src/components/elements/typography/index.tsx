@@ -95,44 +95,65 @@ const StyledTypography = styled(Paragraph)`
         font-weight: 700;
         font-size: 20px;
         line-height: 28px;
+        font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h2 {
         color: var(--primary);
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 36px;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 40px;
+        font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h3 {
         color: var(--primary);
         font-weight: 600;
         font-size: 16px;
         line-height: 22px;
+        font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h4 {
         color: var(--primary);
         font-weight: 600;
         font-size: 14px;
         line-height: 20px;
+        font-family: "Montserrat", sans-serif;
+    }
+    &.hatemen-h5 {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body {
-        color: var(--primary);
+        color: var(--secondary);
         font-size: 14px;
         line-height: 20px;
+        font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body1 {
-        color: var(--primary);
+        color: var(--secondary);
         font-size: 10px;
         line-height: 14px;
+        font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body2 {
-        color: var(--textSecondary);
-        font-size: 14px;
-        line-height: 20px;
+        color: var(--secondary);
+        font-size: 40px;
+        line-height: 56px;
+        font-family: "Montserrat", sans-serif;
+    }
+    &.hatemen-body3 {
+        color: var(--secondary);
+        font-size: 16px;
+        line-height: 28px;
+        font-family: "Montserrat", sans-serif;
     }
     &.hatemen-label1 {
-        color: var(--primary);
-        font-size: 16px;
+        color: var(--secondary);
+        font-size: 20px;
         font-weight: 400;
-        line-height: 22px;
+        line-height: 24px;
+        font-family: "Montserrat", sans-serif;
     }
 `;

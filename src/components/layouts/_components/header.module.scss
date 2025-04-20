@@ -48,6 +48,10 @@
     position: relative;
     overflow: hidden;
 
+    &:hover {
+        color: #fff !important;
+    }
+
     .icon-prev,
     .icon-hover {
         position: absolute;
