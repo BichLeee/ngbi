@@ -1,5 +1,5 @@
 import { Carousel as AntdCarousel, Flex } from "antd";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 
 import { ArrowLeft, ArrowRight } from "assets/svgs";
@@ -7,14 +7,18 @@ import { ArrowLeft, ArrowRight } from "assets/svgs";
 type CarouselProps = {
     children: React.ReactNode;
     slidesToShow?: number;
+    arrows?: boolean;
+    dots?: boolean;
+    draggable?: boolean;
+    infinite?: boolean;
 };
 
 export const Carousel = ({ children, slidesToShow = 1, ...props }: CarouselProps) => {
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef<any>(null);
 
     return (
         <div>
-            <StyledCarousel slidesToShow={slidesToShow} ref={ref} {...props}>
+            <StyledCarousel slidesToShow={slidesToShow} ref={ref || null} {...props}>
                 {children}
             </StyledCarousel>
             <Flex align="center" justify="center" gap={20} style={{ marginTop: 24 }}>

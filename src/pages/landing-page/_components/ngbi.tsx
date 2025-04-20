@@ -12,12 +12,12 @@ const wordNumber2 = [...text2.split(" ")].length;
 
 export const NgBi = () => {
     const [visibleWordCount, setVisibleWordCount] = useState(0);
-    const wrapperRef = useRef<HTMLDivElement>(null);
+    const wrapperRef = useRef<any>(null);
 
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const offset = wrapperRef.current?.offsetTop - 600 || 0; // 200vh
+            const offset = wrapperRef?.current?.offsetTop - 600 || 0; // 200vh
             const wrapperHeight = wrapperRef.current?.offsetHeight || 1;
 
             if (scrollY > offset) {

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Typography } from "components/elements";
 import hcmus from "assets/images/hcmus.jpg";
 import drcom from "assets/images/drcom.png";
-import avianjet from "assets/images/avianjet.PNG";
+import avianjet from "assets/images/avianjet.png";
 import hcmus_logo from "assets/images/hcmus-logo.png";
 import drcom_logo from "assets/images/drcom-logo.png";
 import avianjet_logo from "assets/images/avian-logo.png";
@@ -12,7 +12,6 @@ import avianjet_logo from "assets/images/avian-logo.png";
 export const Highlight = () => {
     return (
         <Container>
-            <Flex justify="center">{/* <Typography variant="h2">HIGHLIGHT</Typography> */}</Flex>
             <Carousel>
                 <Card img={hcmus}>
                     <Flex vertical gap={20} justify="center">
