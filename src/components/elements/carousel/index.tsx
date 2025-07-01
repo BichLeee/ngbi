@@ -35,7 +35,7 @@ export const Carousel = ({ children, slidesToShow = 1, ...props }: CarouselProps
 
 const StyledCarousel = styled(AntdCarousel)`
     &.slick-slider {
-        padding-inline: 100px;
+        padding-inline: 8vw;
     }
 
     &.slick-slider .slick-list {

@@ -105,9 +105,7 @@ const Description = styled(Flex)`
 `;
 
 const NextArrowStyled = styled(NextArrow)`
-    &:hover {
-        animation: floatDown 1s ease infinite;
-    }
+    animation: floatDown 1s ease infinite;
 
     @keyframes floatDown {
         0% {

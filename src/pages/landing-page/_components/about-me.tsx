@@ -9,9 +9,9 @@ import { ScribbleCircle } from "assets/svgs";
 export const AboutMe = () => {
     return (
         <Container>
-            <Row gutter={[20, 20]} style={{ height: "100%" }}>
-                <Col xs={12}>
-                    <Flex gap={20} vertical justify="center" style={{ padding: "100px", height: "100%" }}>
+            <Row gutter={[0, 20]} style={{ height: "100%", flexWrap: "wrap-reverse" }}>
+                <Col md={24} lg={12}>
+                    <AboutWrapper gap={20} vertical justify="center">
                         <Typography variant="h5">About me</Typography>
                         <Typography variant="h2" color="#fff">
                             Hey there,{" "}
@@ -19,16 +19,16 @@ export const AboutMe = () => {
                                 I’m Bich <StyledCircle />
                             </span>
                         </Typography>
-                        <Typography>
+                        <Typography variant="body3">
                             Hi! I'm a frontend website developer with a passion for building clean, responsive, and
                             user-friendly web interfaces. I'm currently open for freelance opportunities and have
                             hands-on experience working with CMS tools like Drupal. Whether it's creating a custom site
                             or improving an existing one, I focus on delivering quality results that meet client goals.
                             😁
                         </Typography>
-                    </Flex>
+                    </AboutWrapper>
                 </Col>
-                <Col xs={12}>
+                <Col md={24} lg={12} style={{ minHeight: 400, width: "100%" }}>
                     <BackgroundImage />
                     <Image />
                 </Col>
@@ -39,29 +39,40 @@ export const AboutMe = () => {
 
 const Container = styled.div`
     width: 100vw;
-    height: calc(100vh - 85px);
+    min-height: calc(100vh - 85px);
     position: relative;
     margin-top: calc(100vw * 0.13);
-    margin-bottom: calc(100vw * 0.06);
+    margin-bottom: calc(100vw * 0.13);
+
+    @media screen and (max-width: 1000px) {
+        padding-inline: 8% !important;
+    }
 `;
 
 const BackgroundImage = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 90vh;
     border-radius: 4px;
-    margin-left: 20%;
+    margin-left: auto;
 
     background-image: url(${image1});
     background-attachment: fixed;
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 350px 0;
+    background-position: calc(100% + 300px) 0;
+
+    @media screen and (max-width: 1000px) {
+        background-position: center;
+    }
+
+    @media screen and (max-width: 690px) {
+        height: 60vh;
+    }
 `;
 
 const Image = styled.div`
     height: 50vh;
-    width: 250px;
+    aspect-ratio: 3/4;
     position: absolute;
     top: 50%;
     left: 0;
@@ -70,9 +81,12 @@ const Image = styled.div`
 
     background-image: url(${image2});
     background-attachment: fixed;
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media only screen and (max-width: 690px) {
+        height: 35vh;
+    }
 `;
 
 const StyledCircle = styled(ScribbleCircle)`
@@ -81,4 +95,9 @@ const StyledCircle = styled(ScribbleCircle)`
     height: 114%;
     top: -7%;
     left: -18%;
+`;
+
+const AboutWrapper = styled(Flex)`
+    padding-inline: 8%;
+    height: 100%;
 `;

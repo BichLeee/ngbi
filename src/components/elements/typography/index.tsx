@@ -6,7 +6,20 @@ const { Paragraph } = AntTypography;
 
 type TypographyProps = {
     children: React.ReactNode;
-    variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body" | "body1" | "body2" | "body3" | "body4" | "label1";
+    variant?:
+        | "h1"
+        | "h2"
+        | "h3"
+        | "h4"
+        | "h5"
+        | "h6"
+        | "body"
+        | "body1"
+        | "body2"
+        | "body3"
+        | "body4"
+        | "body5"
+        | "label1";
     rootClassName?: string;
     style?: React.CSSProperties;
     align?: React.CSSProperties["textAlign"];
@@ -80,73 +93,79 @@ const StyledTypography = styled(Paragraph)`
     &.hatemen-h1 {
         color: var(--primary);
         font-weight: 700;
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 4rem;
+        line-height: 5.6rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h2 {
         color: var(--primary);
         font-weight: 700;
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 3.2rem;
+        line-height: 4rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h3 {
         color: var(--primary);
         font-weight: 600;
-        font-size: 16px;
-        line-height: 22px;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h4 {
         color: var(--primary);
         font-weight: 600;
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 1.4rem;
+        line-height: 2rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h5 {
         color: var(--primary);
         font-weight: 700;
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body {
         color: var(--secondary);
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 1.4rem;
+        line-height: 2rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body1 {
         color: var(--secondary);
-        font-size: 10px;
-        line-height: 14px;
+        font-size: 1rem;
+        line-height: 1.4rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body2 {
         color: var(--secondary);
-        font-size: 40px;
-        line-height: 56px;
+        font-size: 4rem;
+        line-height: 5.6rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body3 {
         color: var(--secondary);
-        font-size: 16px;
-        line-height: 28px;
+        font-size: 1.6rem;
+        line-height: 2.8rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-body4 {
         color: var(--secondary);
-        font-size: 12px;
-        line-height: 28px;
+        font-size: 1.2rem;
+        line-height: 2.8rem;
+        font-family: "Montserrat", sans-serif;
+    }
+    &.hatemen-body5 {
+        color: var(--secondary);
+        font-size: 2rem;
+        line-height: 2.8rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-label1 {
         color: var(--secondary);
-        font-size: 20px;
+        font-size: 2rem;
         font-weight: 400;
-        line-height: 24px;
+        line-height: 2.8rem;
         font-family: "Montserrat", sans-serif;
     }
 `;

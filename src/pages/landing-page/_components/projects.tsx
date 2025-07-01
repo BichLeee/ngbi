@@ -67,17 +67,32 @@ export const Projects = () => {
                         </span>
                     </Typography>
                 </Flex>
-                <Carousel slidesToShow={2} arrows={false} dots={false} draggable infinite>
-                    {projects.map((project) => (
-                        <Card>
-                            <Image src={project.image} />
-                            <Typography align="center" variant="label1" weight="bold">
-                                {project.title}
-                            </Typography>
-                            <Typography align="center">{project.description}</Typography>
-                        </Card>
-                    ))}
-                </Carousel>
+                <DesktopContainer>
+                    <Carousel slidesToShow={2} arrows={false} dots={false} draggable infinite>
+                        {projects.map((project) => (
+                            <Card>
+                                <Image src={project.image} />
+                                <Typography align="center" variant="label1" weight="bold">
+                                    {project.title}
+                                </Typography>
+                                <Typography align="center">{project.description}</Typography>
+                            </Card>
+                        ))}
+                    </Carousel>
+                </DesktopContainer>
+                <MobileContainer>
+                    <Carousel slidesToShow={1} arrows={false} dots={false} draggable infinite>
+                        {projects.map((project) => (
+                            <Card>
+                                <Image src={project.image} />
+                                <Typography align="center" variant="label1" weight="bold">
+                                    {project.title}
+                                </Typography>
+                                <Typography align="center">{project.description}</Typography>
+                            </Card>
+                        ))}
+                    </Carousel>
+                </MobileContainer>
             </Flex>
         </Container>
     );
@@ -85,11 +100,9 @@ export const Projects = () => {
 
 const Container = styled.div`
     width: 100vw;
-    height: calc(100vh - 85px);
+    min-height: calc(100vh - 85px);
     margin: 0 auto;
     position: relative;
-    margin-top: calc(100vw * 0.13);
-    margin-bottom: calc(100vw * 0.06);
 `;
 
 const StyledUnderline = styled(ScribbleUnderline)`
@@ -120,4 +133,16 @@ const Image = styled.img`
 
 const StyledLink = styled(Link)`
     color: #ffb4dc !important;
+`;
+
+const DesktopContainer = styled(Container)`
+    @media (max-width: 1000px) {
+        display: none;
+    }
+`;
+
+const MobileContainer = styled(Container)`
+    @media (min-width: 1000px) {
+        display: none;
+    }
 `;

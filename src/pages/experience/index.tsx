@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Timeline } from "components/elements/timeline";
 import { Typography } from "components/elements";
 import { Dot } from "components/elements/dot";
-import { Tabs } from "components/elements/Tabs";
+import { Tabs } from "components/elements/tabs";
 
 import tiktokProject from "assets/images/tiktok.jpeg";
 import jobstreetProject from "assets/images/jobstreet.jpeg";
@@ -259,6 +259,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 100px;
+    margin: 0 auto;
 `;
 
 const Link = styled.a`
@@ -279,6 +280,7 @@ const Section = styled.div`
     padding-bottom: 20px;
     width: 100%;
     max-width: 800px;
+    margin: 0 auto;
 `;
 
 const TabContent = styled.div`

@@ -7,7 +7,7 @@ export const Skills = () => {
     return (
         <Container>
             <Flex vertical gap={20}>
-                <Typography variant="h2" weight="regular">
+                <Typography variant="h1" weight="regular">
                     Skills
                 </Typography>
                 <Typography variant="body3" weight="regular">
@@ -40,9 +40,10 @@ export const Skills = () => {
 
 const Container = styled.div`
     max-width: 600px;
-    max-height: calc(100vh - 85px);
+    min-height: calc(100vh - 85px);
     margin: 0 auto;
     position: relative;
-    margin-top: calc(100vw * 0.13);
-    margin-bottom: calc(100vw * 0.06);
+    margin-bottom: 5vh;
+    margin-top: 20vh;
+    padding-inline: var(--page-padding);
 `;

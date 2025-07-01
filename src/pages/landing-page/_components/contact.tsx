@@ -10,15 +10,15 @@ import linkedin from "assets/images/linkedin.png";
 export const Contact = () => {
     return (
         <Container>
-            <Row gutter={[20, 20]} style={{ height: "100%" }}>
-                <Col xs={10}>
+            <Row gutter={[20, 20]} wrap style={{ height: "100%" }}>
+                <Col md={24} lg={10} style={{ width: "100%" }}>
                     <Flex gap={20} vertical justify="center" align="center">
                         <Image src={contactImage1} />
                         <Image src={contactImage2} />
                     </Flex>
                 </Col>
-                <Col xs={14}>
-                    <Flex gap={20} vertical justify="center" style={{ padding: "100px", height: "100%" }}>
+                <Col md={24} lg={14}>
+                    <ContactContent gap={20} vertical justify="center">
                         <Typography variant="h5">Contact</Typography>
                         <Typography variant="h2" color="#fff">
                             Ready to <span style={{ position: "relative" }}>dive in?</span>
@@ -32,7 +32,7 @@ export const Contact = () => {
                         <Link target="_blank" to="https://www.linkedin.com/in/b%C3%ADch-l%C3%AA-sophie/">
                             <Linkedin src={linkedin} />
                         </Link>
-                    </Flex>
+                    </ContactContent>
                 </Col>
             </Row>
         </Container>
@@ -41,10 +41,10 @@ export const Contact = () => {
 
 const Container = styled.div`
     width: 100vw;
-    height: calc(100vh - 85px);
+    min-height: calc(100vh - 85px);
     position: relative;
-    margin-top: calc(100vw * 0.13);
     margin-bottom: calc(100vw * 0.06);
+    padding-inline: var(--page-padding);
 `;
 
 const Image = styled.img`
@@ -54,6 +54,7 @@ const Image = styled.img`
     width: 100%;
     object-fit: cover;
     border-radius: 4px;
+    margin: 0 auto;
 `;
 
 const Linkedin = styled.img`
@@ -62,4 +63,13 @@ const Linkedin = styled.img`
     height: auto;
     object-fit: cover;
     border-radius: 4px;
+`;
+
+const ContactContent = styled(Flex)`
+    padding: 100px;
+    height: 100%;
+
+    @media (max-width: 1000px) {
+        padding-inline: var(--page-padding);
+    }
 `;
