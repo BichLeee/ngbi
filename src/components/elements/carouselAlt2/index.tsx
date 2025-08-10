@@ -1,4 +1,3 @@
-import { Carousel as AntdCarousel, Flex } from "antd";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 

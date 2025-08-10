@@ -1,7 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
-import { useDebounce } from "utils/helper";
 
 type MouseTooltipProps = {
     content: React.ReactNode;

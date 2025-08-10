@@ -19,7 +19,7 @@ const Card = ({ img, children }: { img: string; children: React.ReactNode }) => 
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (boxRef.current) {
-            const rect = boxRef.current.getBoundingClientRect();
+            const rect = (boxRef.current as HTMLElement).getBoundingClientRect();
             const left = e.clientX - rect.left;
             const top = e.clientY - rect.top;
             setRotate({
