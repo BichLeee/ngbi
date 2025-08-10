@@ -1,14 +1,13 @@
 import { Flex } from "antd";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import { Typography } from "components/elements";
+import { Carousel, Typography } from "components/elements";
 import { ScribbleUnderline } from "assets/svgs";
-import { Carousel } from "components/elements";
 
 import tiktok from "assets/images/tiktok.jpeg";
 import jobstreet from "assets/images/jobstreet.jpeg";
 import lovelyPaws from "assets/images/lovely-paws.jpeg";
-import { Link } from "react-router-dom";
 
 export const Projects = () => {
     const projects = [

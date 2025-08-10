@@ -1,8 +1,8 @@
 import { Col, Flex, Row } from "antd";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 import { Typography } from "components/elements";
-import { useEffect, useRef, useState } from "react";
 
 const text1 = "I'm always eager to take on new challenges that push my skills and creativity as a developer.";
 const text2 =

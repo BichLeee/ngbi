@@ -1,10 +1,10 @@
 import React from "react";
 import { Flex } from "antd";
 import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
 
 import logo from "assets/images/logo.png";
 import { LogoInstagram, LogoLinkedin, LogoMail, LogoPhone } from "assets/svgs";
-import styled from "styled-components";
 
 const ContactItem = ({ icon, link }: { icon: React.ReactNode; link: string }) => {
     return (

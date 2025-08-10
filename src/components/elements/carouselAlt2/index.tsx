@@ -10,7 +10,7 @@ type CarouselProps = {
     infinite?: boolean;
 };
 
-export const Carousel = ({ children, ...props }: CarouselProps) => {
+export const CarouselAlt2 = ({ children, ...props }: CarouselProps) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);

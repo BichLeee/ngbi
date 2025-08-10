@@ -1,14 +1,11 @@
+import { Col, Flex, Row } from "antd";
 import styled from "styled-components";
 
-import { Timeline } from "components/elements/timeline";
-import { Typography } from "components/elements";
-import { Dot } from "components/elements/dot";
-import { Tabs } from "components/elements/tabs";
+import { Dot, Tabs, Typography, Timeline } from "components/elements";
 
 import tiktokProject from "assets/images/tiktok.jpeg";
 import jobstreetProject from "assets/images/jobstreet.jpeg";
 import lovelyPawsProject from "assets/images/lovely-paws.jpeg";
-import { Col, Flex, Row } from "antd";
 
 export const Experience = () => {
     const timelineItems = [

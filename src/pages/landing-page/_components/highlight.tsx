@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import { Flex } from "antd";
 import styled from "styled-components";
 
-import { Typography } from "components/elements";
+import { CarouselAlt2, Typography } from "components/elements";
+
 import hcmus from "assets/images/hcmus.jpg";
 import drcom from "assets/images/drcom2.png";
 import avianjet from "assets/images/avianjet.png";
@@ -11,7 +12,6 @@ import toeic_logo from "assets/images/toeic_logo.png";
 import hcmus_logo from "assets/images/hcmus-logo.png";
 import drcom_logo from "assets/images/drcom-logo.png";
 import avianjet_logo from "assets/images/avian-logo.png";
-import { Carousel } from "components/elements/carouselAlt2";
 
 const Card = ({ img, children }: { img: string; children: React.ReactNode }) => {
     const boxRef = useRef(null);
@@ -51,7 +51,7 @@ export const Highlight = () => {
                     Highlight
                 </Typography>
             </Flex>
-            <Carousel arrows={false} dots={false} draggable infinite={false}>
+            <CarouselAlt2 arrows={false} dots={false} draggable infinite={false}>
                 <Card img={english}>
                     <img src={toeic_logo} alt="toeic-logo" width={65} />
                     <Typography variant="label1">TOEIC</Typography>
@@ -98,7 +98,7 @@ export const Highlight = () => {
                         12/2024 - Present
                     </Typography>
                 </Card>
-            </Carousel>
+            </CarouselAlt2>
         </Container>
     );
 };
