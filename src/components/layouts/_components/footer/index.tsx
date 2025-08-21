@@ -51,7 +51,7 @@ const NavItem = styled(Link)`
     font-weight: 400;
 
     &:hover {
-        color: #ffb4dc;
+        color: var(--primary);
     }
 `;
 
@@ -67,8 +67,8 @@ const ContactItem = styled(Link)`
     opacity: 0.6;
 
     &:hover {
-        color: #ffb4dc !important;
-        border-color: #ffb4dc !important;
+        color: var(--primary) !important;
+        border-color: var(--primary) !important;
         opacity: 1;
     }
 `;

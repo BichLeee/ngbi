@@ -2,7 +2,10 @@
 
 :root {
     --max-width: 1550px;
-    --primary: #ffb4dc;
+    /* --primary: #ffb4dc; */
+    /* --primary: #f3b05f; */
+    --primary: #f7b262;
+    /* --primary: #608887; */
     --secondary: #fff;
     --page-padding: 90px;
 

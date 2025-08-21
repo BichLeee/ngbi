@@ -7,21 +7,21 @@ export const Dot = ({ width = 14, height = 14 }: { width?: number; height?: numb
 const StyledDot = styled.i<{ width?: number; height?: number }>`
     height: ${({ height }) => height}px;
     width: ${({ width }) => width}px;
-    background: #ffb4dc;
+    background: var(--primary);
     border-radius: 50%;
     display: block;
 
     &::after {
         display: block;
         position: absolute;
-        background-color: #ffb4dc;
+        background-color: var(--primary);
         opacity: 1;
         z-index: 11;
         pointer-events: none;
         animation: dot-animation 2s cubic-bezier(0.2, 1, 0.2, 1) infinite;
         content: "";
         border-radius: 50%;
-        background: #ffb4dc;
+        background: var(--primary);
         height: ${({ height }) => height}px;
         width: ${({ width }) => width}px;
     }

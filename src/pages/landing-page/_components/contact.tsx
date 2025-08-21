@@ -19,8 +19,8 @@ export const Contact = () => {
                 </Col>
                 <Col md={24} lg={14}>
                     <ContactContent gap={20} vertical justify="center">
-                        <Typography variant="h5">Contact</Typography>
-                        <Typography variant="h2" color="#fff">
+                        <Typography variant="h3">Contact</Typography>
+                        <Typography variant="h1" color="#fff">
                             Ready to <span style={{ position: "relative" }}>dive in?</span>
                         </Typography>
                         <Typography>
@@ -43,7 +43,6 @@ const Container = styled.div`
     width: 100vw;
     min-height: calc(100vh - 85px);
     position: relative;
-    margin-bottom: calc(100vw * 0.06);
     padding-inline: var(--page-padding);
 `;
 

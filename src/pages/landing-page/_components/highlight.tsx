@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Flex } from "antd";
 import styled from "styled-components";
+import gsap from "gsap";
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { CarouselAlt2, Typography } from "components/elements";
-
+import { ScribbleUnderline } from "assets/svgs";
 import hcmus from "assets/images/hcmus.jpg";
 import drcom from "assets/images/drcom2.png";
 import avianjet from "assets/images/avianjet.png";
@@ -13,9 +17,12 @@ import hcmus_logo from "assets/images/hcmus-logo.png";
 import drcom_logo from "assets/images/drcom-logo.png";
 import avianjet_logo from "assets/images/avian-logo.png";
 
+gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(ScrollTrigger);
+
 const Card = ({ img, children }: { img: string; children: React.ReactNode }) => {
-    const boxRef = useRef(null);
     const [rotate, setRotate] = useState({ x: 0, y: 0 });
+    const boxRef = useRef(null);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (boxRef.current) {
@@ -39,16 +46,31 @@ const Card = ({ img, children }: { img: string; children: React.ReactNode }) => 
 };
 
 export const Highlight = () => {
+    const titleRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        gsap.fromTo(
+            ".scribble-quiggle-underline",
+            { drawSVG: 0 },
+            {
+                drawSVG: 1,
+                duration: 1.2,
+                ease: "power2.inOut",
+                scrollTrigger: {
+                    trigger: ".scribble-quiggle-underline",
+                    toggleActions: "restart none none none",
+                },
+            }
+        );
+    });
+
     return (
         <Container>
-            <Flex justify="center" align="center">
-                <Typography
-                    variant="h2"
-                    color="#fff"
-                    transform="uppercase"
-                    style={{ textShadow: "3px 5px 2px #ffb4dc" }}
-                >
-                    Highlight
+            <Flex justify="center" align="center" ref={titleRef}>
+                <Typography variant="h1" color="#fff" align="center">
+                    <span style={{ position: "relative" }}>
+                        Highlights <StyledUnderline />
+                    </span>
                 </Typography>
             </Flex>
             <CarouselAlt2 arrows={false} dots={false} draggable infinite={false}>
@@ -109,6 +131,12 @@ const Container = styled.div`
     position: relative;
 `;
 
+const StyledUnderline = styled(ScribbleUnderline)`
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+`;
+
 const CardWrapper = styled.div<{ img: string; rotate: { x: number; y: number } }>`
     position: relative;
     overflow: hidden;
@@ -123,6 +151,7 @@ const CardWrapper = styled.div<{ img: string; rotate: { x: number; y: number } }
     transition: opacity 0.3s ease, transform 0.3s ease;
     display: flex;
     align-items: center;
+    background-color: #726755;
 
     &::before {
         content: "";
@@ -141,7 +170,7 @@ const CardWrapper = styled.div<{ img: string; rotate: { x: number; y: number } }
             rotateY(${({ rotate }) => rotate.y * 5}deg) rotateZ(0deg) scale(1.05);
 
         &::before {
-            opacity: 0.6;
+            opacity: 0.9;
         }
     }
 `;

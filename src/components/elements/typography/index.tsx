@@ -107,21 +107,21 @@ const StyledTypography = styled(Paragraph)`
     &.hatemen-h3 {
         color: var(--primary);
         font-weight: 600;
-        font-size: 1.6rem;
+        font-size: 2rem;
         line-height: 2.2rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h4 {
         color: var(--primary);
         font-weight: 600;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         line-height: 2rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-h5 {
         color: var(--primary);
         font-weight: 700;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         line-height: 2.8rem;
         font-family: "Montserrat", sans-serif;
     }

@@ -59,7 +59,7 @@ export const Projects = () => {
                     <Typography variant="h5" align="center">
                         Real works, real results
                     </Typography>
-                    <Typography variant="h2" color="#fff" align="center">
+                    <Typography variant="h1" color="#fff" align="center">
                         My{" "}
                         <span style={{ position: "relative" }}>
                             Projects <StyledUnderline />
@@ -106,7 +106,7 @@ const Container = styled.div`
 
 const StyledUnderline = styled(ScribbleUnderline)`
     position: absolute;
-    bottom: -12px;
+    bottom: -16px;
     left: 0;
 `;
 
@@ -131,7 +131,7 @@ const Image = styled.img`
 `;
 
 const StyledLink = styled(Link)`
-    color: #ffb4dc !important;
+    color: var(--primary) !important;
 `;
 
 const DesktopContainer = styled(Container)`

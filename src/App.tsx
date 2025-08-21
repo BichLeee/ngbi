@@ -4,8 +4,31 @@ import { ConfigProvider } from "antd";
 import { LandingPage, Experience } from "pages";
 import { MainLayout } from "components/layouts/MainLayout";
 import "./App.css";
+import gsap from "gsap";
+// import { ScrollSmoother } from "gsap/ScrollSmoother";
+// import { useGSAP } from "@gsap/react";
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+    // useGSAP(() => {
+    //     if (typeof window !== "undefined") {
+    //         const smoother = ScrollSmoother.create({
+    //             smooth: 2,
+    //             effects: true,
+    //             normalizeScroll: true,
+    //         });
+
+    //         return () => {
+    //             smoother.kill();
+    //         };
+    //     }
+    // }, []);
+
     return (
         <ConfigProvider
             theme={{
@@ -36,26 +59,30 @@ function App() {
                 },
             }}
         >
-            <BrowserRouter>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <MainLayout>
-                                <LandingPage />
-                            </MainLayout>
-                        }
-                    />
-                    <Route
-                        path="/exp"
-                        element={
-                            <MainLayout>
-                                <Experience />
-                            </MainLayout>
-                        }
-                    />
-                </Routes>
-            </BrowserRouter>
+            <div id="smooth-wrapper">
+                <div id="smooth-content">
+                    <BrowserRouter>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={
+                                    <MainLayout>
+                                        <LandingPage />
+                                    </MainLayout>
+                                }
+                            />
+                            <Route
+                                path="/exp"
+                                element={
+                                    <MainLayout>
+                                        <Experience />
+                                    </MainLayout>
+                                }
+                            />
+                        </Routes>
+                    </BrowserRouter>
+                </div>
+            </div>
         </ConfigProvider>
     );
 }

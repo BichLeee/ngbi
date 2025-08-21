@@ -1,17 +1,37 @@
 import { Col, Flex, Row } from "antd";
 import styled from "styled-components";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 import { Typography } from "components/elements";
-import image1 from "assets/images/NB1.jpg";
+// import image1 from "assets/images/NB1.jpg";
+import image1 from "assets/images/BG.jpg";
 import image2 from "assets/images/NB2.jpg";
 import { ScribbleCircle } from "assets/svgs";
+import { useRef } from "react";
 
 export const AboutMe = () => {
+    const titleRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        gsap.fromTo(
+            ".scribble-circle",
+            { drawSVG: 0 },
+            {
+                drawSVG: 1,
+                duration: 2,
+                ease: "power2.inOut",
+                delay: 0.6,
+                scrollTrigger: { trigger: "#scribble-circle", toggleActions: "restart pause resume reverse" },
+            }
+        );
+    }, [titleRef]);
+
     return (
         <Container>
             <Row gutter={[0, 20]} style={{ height: "100%", flexWrap: "wrap-reverse" }}>
                 <Col md={24} lg={12}>
-                    <AboutWrapper gap={20} vertical justify="center">
+                    <AboutWrapper gap={20} vertical justify="center" ref={titleRef}>
                         <Typography variant="h5">About me</Typography>
                         <Typography variant="h2" color="#fff">
                             Hey there,{" "}
@@ -58,8 +78,8 @@ const BackgroundImage = styled.div`
     background-image: url(${image1});
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: calc(100% + 300px) 0;
+    background-size: contain;
+    background-position-x: right;
 
     @media screen and (max-width: 1000px) {
         background-position: center;
@@ -95,6 +115,7 @@ const StyledCircle = styled(ScribbleCircle)`
     height: 114%;
     top: -7%;
     left: -18%;
+    color: var(--primary);
 `;
 
 const AboutWrapper = styled(Flex)`
