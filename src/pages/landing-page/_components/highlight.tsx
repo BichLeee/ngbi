@@ -48,21 +48,26 @@ const Card = ({ img, children }: { img: string; children: React.ReactNode }) => 
 export const Highlight = () => {
     const titleRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
-        gsap.fromTo(
-            ".scribble-quiggle-underline",
-            { drawSVG: 0 },
-            {
-                drawSVG: 1,
-                duration: 1.2,
-                ease: "power2.inOut",
-                scrollTrigger: {
-                    trigger: ".scribble-quiggle-underline",
-                    toggleActions: "restart none none none",
-                },
-            }
-        );
-    });
+    useGSAP(
+        () => {
+            gsap.fromTo(
+                ".scribble-quiggle-underline",
+                { drawSVG: 0 },
+                {
+                    drawSVG: 1,
+                    duration: 1.2,
+                    ease: "power2.inOut",
+                    scrollTrigger: {
+                        trigger: ".scribble-quiggle-underline",
+                        toggleActions: "restart none none none",
+                    },
+                }
+            );
+        },
+        {
+            scope: titleRef,
+        }
+    );
 
     return (
         <Container>

@@ -1,31 +1,36 @@
+import { useRef } from "react";
 import { Flex } from "antd";
 import styled from "styled-components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import { Typography } from "components/elements";
-import { useRef } from "react";
 
 export const Skills = () => {
     const circleRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
-        gsap.fromTo(
-            circleRef.current,
-            { y: 0 },
-            {
-                y: 300,
-                ease: "power2.inOut",
-                duration: 3,
-                scrollTrigger: {
-                    trigger: circleRef.current,
-                    scrub: true,
-                    start: "top 90%",
-                    end: "bottom -50%",
-                },
-            }
-        );
-    });
+    useGSAP(
+        () => {
+            gsap.fromTo(
+                circleRef.current,
+                { y: 0 },
+                {
+                    y: 300,
+                    ease: "power2.inOut",
+                    duration: 3,
+                    scrollTrigger: {
+                        trigger: circleRef.current,
+                        scrub: true,
+                        start: "top 90%",
+                        end: "bottom -50%",
+                    },
+                }
+            );
+        },
+        {
+            scope: circleRef,
+        }
+    );
 
     return (
         <Container>

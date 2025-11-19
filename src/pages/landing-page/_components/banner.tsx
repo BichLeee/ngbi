@@ -7,8 +7,6 @@ import { useGSAP } from "@gsap/react";
 import bannerImage from "assets/images/banner2.jpg";
 import { NextArrow } from "assets/svgs";
 
-gsap.registerPlugin(useGSAP);
-
 export const Banner = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);

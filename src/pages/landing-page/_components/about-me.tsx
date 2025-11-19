@@ -13,19 +13,24 @@ import { useRef } from "react";
 export const AboutMe = () => {
     const titleRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
-        gsap.fromTo(
-            ".scribble-circle",
-            { drawSVG: 0 },
-            {
-                drawSVG: 1,
-                duration: 2,
-                ease: "power2.inOut",
-                delay: 0.6,
-                scrollTrigger: { trigger: "#scribble-circle", toggleActions: "restart pause resume reverse" },
-            }
-        );
-    }, [titleRef]);
+    useGSAP(
+        () => {
+            gsap.fromTo(
+                ".scribble-circle",
+                { drawSVG: 0 },
+                {
+                    drawSVG: 1,
+                    duration: 2,
+                    ease: "power2.inOut",
+                    delay: 0.6,
+                    scrollTrigger: { trigger: "#scribble-circle", toggleActions: "restart pause resume reverse" },
+                }
+            );
+        },
+        {
+            scope: titleRef,
+        }
+    );
 
     return (
         <Container>

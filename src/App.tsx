@@ -1,34 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ConfigProvider } from "antd";
+import gsap from "gsap";
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { LandingPage, Experience } from "pages";
 import { MainLayout } from "components/layouts/MainLayout";
 import "./App.css";
-import gsap from "gsap";
-// import { ScrollSmoother } from "gsap/ScrollSmoother";
-// import { useGSAP } from "@gsap/react";
-import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-    // useGSAP(() => {
-    //     if (typeof window !== "undefined") {
-    //         const smoother = ScrollSmoother.create({
-    //             smooth: 2,
-    //             effects: true,
-    //             normalizeScroll: true,
-    //         });
-
-    //         return () => {
-    //             smoother.kill();
-    //         };
-    //     }
-    // }, []);
-
     return (
         <ConfigProvider
             theme={{

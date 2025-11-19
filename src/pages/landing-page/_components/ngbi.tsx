@@ -3,17 +3,23 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 import { Typography } from "components/elements";
+import LogoVertical from "assets/images/logo-vertical.png";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const text1 = "I'm always eager to take on new challenges that push my skills and creativity as a developer.";
 const text2 =
     "I enjoy solving problems, learning new tools, and collaborating to bring ideas to life—especially when it comes to creating seamless web experiences that make an impact.";
+const text3 = "With every project, I aim to grow as a developer while delivering solutions that make an impact.";
 
 const wordNumber1 = [...text1.split(" ")].length;
 const wordNumber2 = [...text2.split(" ")].length;
+const wordNumber3 = [...text3.split(" ")].length;
 
 export const NgBi = () => {
     const [visibleWordCount, setVisibleWordCount] = useState(0);
     const wrapperRef = useRef<any>(null);
+    const logoRef = useRef<any>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,7 +28,7 @@ export const NgBi = () => {
             const wrapperHeight = wrapperRef.current?.offsetHeight || 1;
 
             if (scrollY > offset) {
-                const current = ((scrollY - offset) * (wordNumber1 + wordNumber2)) / wrapperHeight;
+                const current = ((scrollY - offset) * (wordNumber1 + wordNumber2 + wordNumber3)) / wrapperHeight;
                 setVisibleWordCount(current);
             } else {
                 setVisibleWordCount(0);
@@ -33,16 +39,32 @@ export const NgBi = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useGSAP(
+        () => {
+            gsap.to(logoRef.current, {
+                scrollTrigger: {
+                    trigger: logoRef.current,
+                    start: "top 85px",
+                    end: `top+=${wrapperRef?.current?.offsetHeight - logoRef?.current?.offsetHeight} 85px`,
+                    scrub: true,
+                    pin: true,
+                },
+            });
+        },
+        {
+            scope: logoRef,
+            dependencies: [logoRef.current],
+            revertOnUpdate: true,
+        }
+    );
+
     return (
         <>
             <DesktopContainer ref={wrapperRef}>
                 <Row gutter={[20, 20]} style={{ height: "100%" }}>
                     <Col xs={8}>
-                        <Flex vertical justify="center">
-                            <BigText>
-                                ng<sup style={{ fontSize: "300px" }}>.</sup>
-                            </BigText>
-                            <BigText>bi</BigText>
+                        <Flex justify="start" style={{ maxWidth: "360px" }}>
+                            <img src={LogoVertical} alt="logo" width="100%" loading="eager" ref={logoRef} />
                         </Flex>
                     </Col>
                     <Col xs={16}>
@@ -57,6 +79,13 @@ export const NgBi = () => {
                             <Flex gap={10} wrap="wrap" style={{ marginTop: "80px" }}>
                                 {text2.split(" ").map((t, i) => (
                                     <Word key={i} visible={i + wordNumber1 <= visibleWordCount}>
+                                        {t}
+                                    </Word>
+                                ))}
+                            </Flex>
+                            <Flex gap={10} wrap="wrap" style={{ marginTop: "80px" }}>
+                                {text3.split(" ").map((t, i) => (
+                                    <Word key={i} visible={i + wordNumber1 + wordNumber2 <= visibleWordCount}>
                                         {t}
                                     </Word>
                                 ))}
@@ -103,13 +132,6 @@ const Container = styled.div`
         margin-top: 0;
         margin-bottom: 10vh;
     }
-`;
-
-const BigText = styled.span`
-    font-size: 200px;
-    font-weight: bold;
-    color: #fff;
-    line-height: 1;
 `;
 
 const Word = styled.span<{ visible: boolean }>`

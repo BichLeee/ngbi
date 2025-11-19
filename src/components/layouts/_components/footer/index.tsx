@@ -63,12 +63,11 @@ const ContactItem = styled(Link)`
     height: 44px;
     padding: 12px;
     border-radius: 50%;
-    border: 2px solid #c9c9c9;
-    opacity: 0.6;
+    border: 2px solid rgba(201, 201, 201, 0.6);
 
     &:hover {
         color: var(--primary) !important;
-        border-color: var(--primary) !important;
+        border: 2px solid var(--primary) !important;
         opacity: 1;
     }
 `;
