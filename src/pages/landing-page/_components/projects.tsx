@@ -5,19 +5,20 @@ import { Link } from "react-router-dom";
 import { Carousel, Typography } from "components/elements";
 import { ScribbleUnderline } from "assets/svgs";
 
-import tiktok from "assets/images/tiktok.jpeg";
+// import tiktok from "assets/images/tiktok.jpeg";
 import jobstreet from "assets/images/jobstreet.jpeg";
 import lovelyPaws from "assets/images/lovely-paws.jpeg";
+import oakame from "assets/images/oakame.jpeg";
 
 export const Projects = () => {
     const projects = [
         {
-            image: tiktok,
-            title: "TikTok",
+            image: oakame,
+            title: "Oakame",
             description: (
                 <p>
-                    A clone of TikTok <br />
-                    <StyledLink target="_blank" to="https://github.com/BichLeee/tiktok-ui">
+                    A clone of Oakame website <br />
+                    <StyledLink target="_blank" to="https://github.com/BichLeee/oakame">
                         Github link
                     </StyledLink>
                 </p>
@@ -41,10 +42,7 @@ export const Projects = () => {
             description: (
                 <p>
                     Design of a website selling pet products and services. <br />
-                    <StyledLink
-                        target="_blank"
-                        to="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1"
-                    >
+                    <StyledLink target="_blank" to="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1">
                         Figma link
                     </StyledLink>
                 </p>

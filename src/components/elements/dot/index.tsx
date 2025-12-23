@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const Dot = ({ width = 14, height = 14 }: { width?: number; height?: number }) => {
-    return <StyledDot width={width} height={height}></StyledDot>;
+export const Dot = ({ width = 10, height = 10, color = "#fff" }: { width?: number; height?: number }) => {
+    return <StyledDot width={width} height={height} color={color}></StyledDot>;
 };
 
-const StyledDot = styled.i<{ width?: number; height?: number }>`
+const StyledDot = styled.i<{ width?: number; height?: number; color?: string }>`
     height: ${({ height }) => height}px;
     width: ${({ width }) => width}px;
-    background: var(--primary);
+    background: ${({ color }) => color};
     border-radius: 50%;
     display: block;
 

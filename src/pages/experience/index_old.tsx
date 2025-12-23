@@ -50,7 +50,7 @@ export const Experience = () => {
                     <Typography>
                         ---
                         <br />
-                        Join product development relating to aviantion jets
+                        Join product development relating to aviation jets
                         <br />
                         Techstack: ReactJS, NextJS, Redux, TypeScript, Ant Design, Styled Components
                         <br />
@@ -216,10 +216,7 @@ export const Experience = () => {
                         </Col>
                     </Row>
                     <Flex gap={30}>
-                        <Link
-                            href="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1"
-                            target="_blank"
-                        >
+                        <Link href="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1" target="_blank">
                             Figma
                         </Link>
                     </Flex>
@@ -246,6 +243,68 @@ export const Experience = () => {
             </Section>
         </Container>
     );
+};
+
+const WorkingExperiencesTimeLine = () => {
+    const timelineItems = [
+        {
+            dot: <Dot />,
+            children: (
+                <div>
+                    <Typography weight="semibold" variant="body3" style={{ fontSize: "1.8rem" }}>
+                        University of Science
+                    </Typography>
+                    <Typography>09/2020 - 09/2024</Typography>
+                    <Typography top={12}>Software Engineer - GPA: 8.4</Typography>
+                </div>
+            ),
+        },
+        {
+            dot: <Dot />,
+            children: (
+                <div style={{ marginBottom: 40 }}>
+                    <Typography weight="semibold" variant="body3" style={{ fontSize: "1.8rem" }}>
+                        DRCOM - Intern Developer
+                    </Typography>
+                    <Typography>08/2023 - 03/2024</Typography>
+                    <Typography top={16}>
+                        Join outsourcing projects relating to medical
+                        <br />
+                        Techstack: Drupal, HTML, CSS, JS
+                        <br />
+                        Tools: Google web designer, Photoshop, ...
+                        <br />
+                    </Typography>
+                    <Link href="https://www.drcomgroup.com/" target="_blank">
+                        See more
+                    </Link>
+                </div>
+            ),
+        },
+        {
+            dot: <Dot />,
+            children: (
+                <div>
+                    <Typography weight="semibold" variant="body3" style={{ fontSize: "1.8rem" }}>
+                        Avian Solutions - Frontend Developer
+                    </Typography>
+                    <Typography>12/2024 - Present</Typography>
+                    <Typography top={16}>
+                        Join product development relating to aviation jets
+                        <br />
+                        Techstack: ReactJS, NextJS, Redux, TypeScript, Ant Design, Styled Components
+                        <br />
+                        Tools: Jira, Notion, Bitbucket, ...
+                    </Typography>
+                    <Link href="https://aviansolutions.aero/" target="_blank">
+                        See more
+                    </Link>
+                </div>
+            ),
+        },
+    ];
+
+    return <Timeline items={timelineItems} mode="alternate" />;
 };
 
 const Container = styled.div`

@@ -8,11 +8,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { CarouselAlt2, Typography } from "components/elements";
 import { ScribbleUnderline } from "assets/svgs";
-import hcmus from "assets/images/hcmus.jpg";
-import drcom from "assets/images/drcom2.png";
+import hcmus from "assets/images/hcmus-bg.jpg";
+// import hcmus from "assets/images/hcmus.jpg";
+import drcom from "assets/images/drcom-bg.jpg";
+// import drcom from "assets/images/drcom2.png";
 import avianjet from "assets/images/avianjet.png";
-import english from "assets/images/people-talking.jpg";
-import toeic_logo from "assets/images/toeic_logo.png";
+import english from "assets/images/emily-in-paris.png";
+// import english from "assets/images/people-talking.jpg";
+// import toeic_logo from "assets/images/toeic_logo.png";
+import toeic_logo from "assets/images/ETS-Logo.png";
 import hcmus_logo from "assets/images/hcmus-logo.png";
 import drcom_logo from "assets/images/drcom-logo.png";
 import avianjet_logo from "assets/images/avian-logo.png";
@@ -156,7 +160,7 @@ const CardWrapper = styled.div<{ img: string; rotate: { x: number; y: number } }
     transition: opacity 0.3s ease, transform 0.3s ease;
     display: flex;
     align-items: center;
-    background-color: #726755;
+    background-color: #443f37;
 
     &::before {
         content: "";
@@ -171,11 +175,10 @@ const CardWrapper = styled.div<{ img: string; rotate: { x: number; y: number } }
     }
 
     &:hover {
-        transform: perspective(1000px) rotateX(${({ rotate }) => rotate.x * 5}deg)
-            rotateY(${({ rotate }) => rotate.y * 5}deg) rotateZ(0deg) scale(1.05);
+        transform: perspective(1000px) rotateX(${({ rotate }) => rotate.x * 5}deg) rotateY(${({ rotate }) => rotate.y * 5}deg) rotateZ(0deg) scale(1.05);
 
         &::before {
-            opacity: 0.9;
+            opacity: 0.8;
         }
     }
 `;

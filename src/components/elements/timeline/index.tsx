@@ -19,4 +19,13 @@ const StyledTimeline = styled(AntdTimeline)`
     & .ant-timeline-item-tail {
         border-inline-start: 2px solid #ffffff1c;
     }
+
+    & .ant-steps-item-icon {
+        display: block !important;
+    }
+
+    & .ant-steps-item-rail {
+        border-color: #76736e;
+        border-inline-start-width: 1px !important;
+    }
 `;

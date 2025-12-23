@@ -6,23 +6,10 @@ const { Paragraph } = AntTypography;
 
 type TypographyProps = {
     children: React.ReactNode;
-    variant?:
-        | "h1"
-        | "h2"
-        | "h3"
-        | "h4"
-        | "h5"
-        | "h6"
-        | "body"
-        | "body1"
-        | "body2"
-        | "body3"
-        | "body4"
-        | "body5"
-        | "label1";
+    variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body" | "body1" | "body2" | "body3" | "body4" | "body5" | "body6" | "label1";
     rootClassName?: string;
     style?: React.CSSProperties;
-    align?: React.CSSProperties["textAlign"];
+    align?: React.CSSProperties["textAlign"] | null;
     color?: string | null;
     top?: number | null;
     left?: number | null;
@@ -39,7 +26,7 @@ export const Typography = ({
     variant = "body",
     rootClassName = "",
     style = {},
-    align = "left",
+    align = null,
     color = null,
     top = null,
     left = null,
@@ -60,8 +47,9 @@ export const Typography = ({
         heavy: 800,
     };
 
-    let inline = { textAlign: align, ...style } as React.CSSProperties;
+    let inline = { ...style } as React.CSSProperties;
 
+    if (align) inline.textAlign = align;
     if (weight) inline.fontWeight = fw[weight];
     if (color) inline.color = color;
     if (transform) inline.textTransform = transform;
@@ -88,7 +76,7 @@ const StyledTypography = styled(Paragraph)`
     line-height: normal;
     &.ant-typography,
     &.ant-typography p {
-        margin: 0 !important;
+        margin: 0;
     }
     &.hatemen-h1 {
         color: var(--primary);
@@ -159,6 +147,12 @@ const StyledTypography = styled(Paragraph)`
         color: var(--secondary);
         font-size: 2rem;
         line-height: 2.8rem;
+        font-family: "Montserrat", sans-serif;
+    }
+    &.hatemen-body6 {
+        color: var(--secondary);
+        font-size: 1.8rem;
+        line-height: 2.6rem;
         font-family: "Montserrat", sans-serif;
     }
     &.hatemen-label1 {
