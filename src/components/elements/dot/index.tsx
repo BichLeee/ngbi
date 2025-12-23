@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Dot = ({ width = 10, height = 10, color = "#fff" }: { width?: number; height?: number }) => {
+export const Dot = ({ width = 10, height = 10, color = "#fff" }: { width?: number; height?: number; color?: string }) => {
     return <StyledDot width={width} height={height} color={color}></StyledDot>;
 };
 
