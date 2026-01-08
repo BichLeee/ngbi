@@ -9,11 +9,6 @@ import oakame_3 from "assets/images/oakame/oakame-3.png";
 import oakame_4 from "assets/images/oakame/oakame-4.png";
 import { IconAdmin, IconEmployee, IconEmployer, IconHome } from "assets/svgs";
 
-type SideItem = {
-    icon: React.ReactNode;
-    text: string;
-};
-
 export const PROJECTS = [
     {
         key: "oakame",

@@ -1,19 +1,19 @@
-import { ReactComponent as LogoInstagram } from "./instagram.svg";
-import { ReactComponent as LogoMail } from "./mail.svg";
-import { ReactComponent as LogoLinkedin } from "./linkedin.svg";
-import { ReactComponent as LogoPhone } from "./phone.svg";
-import { ReactComponent as NextArrow } from "./next-arrow.svg";
-import { ReactComponent as ScribbleCircle } from "./scribble-circle.svg";
-import { ReactComponent as ScribbleUnderline } from "./scribble-quiggle-underline.svg";
-import { ReactComponent as ArrowLeft } from "./arrow-left.svg";
-import { ReactComponent as ArrowRight } from "./arrow-right.svg";
-import { ReactComponent as IconX } from "./icon-x.svg";
-import { ReactComponent as IconClock } from "./icon-clock.svg";
-import { ReactComponent as IconHome } from "./icon-home.svg";
-import { ReactComponent as IconPages } from "./icon-pages.svg";
-import { ReactComponent as IconEmployee } from "./icon-employee.svg";
-import { ReactComponent as IconEmployer } from "./icon-employer.svg";
-import { ReactComponent as IconAdmin } from "./icon-admin.svg";
+import LogoInstagram from "./instagram.svg?react";
+import LogoMail from "./mail.svg?react";
+import LogoLinkedin from "./linkedin.svg?react";
+import LogoPhone from "./phone.svg?react";
+import NextArrow from "./next-arrow.svg?react";
+import ScribbleCircle from "./scribble-circle.svg?react";
+import ScribbleUnderline from "./scribble-quiggle-underline.svg?react";
+import ArrowRight from "./arrow-right.svg?react";
+import IconX from "./icon-x.svg?react";
+import IconClock from "./icon-clock.svg?react";
+import IconHome from "./icon-home.svg?react";
+import IconPages from "./icon-pages.svg?react";
+import IconEmployee from "./icon-employee.svg?react";
+import IconEmployer from "./icon-employer.svg?react";
+import IconAdmin from "./icon-admin.svg?react";
+import ArrowLeft from "./arrow-left.svg?react";
 
 export {
     LogoInstagram,

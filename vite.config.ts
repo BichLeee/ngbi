@@ -5,5 +5,11 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [tsconfigPaths(), react(), svgr({ include: "**/*.svg" })],
+    plugins: [
+        tsconfigPaths(),
+        react(),
+        svgr({
+            include: "**/*.svg",
+        }),
+    ],
 });
