@@ -1,10 +1,11 @@
-import { Carousel as AntdCarousel, Flex } from "antd";
+import { Carousel as AntdCarousel, Flex, CarouselProps } from "antd";
+import CarouselType from "antd/lib/carousel";
 import React, { useRef } from "react";
 import styled from "styled-components";
 
 import { ArrowLeft, ArrowRight } from "assets/svgs";
 
-type CarouselProps = {
+type CarouselType = CarouselProps & {
     children: React.ReactNode;
     slidesToShow?: number;
     arrows?: boolean;
@@ -13,7 +14,7 @@ type CarouselProps = {
     infinite?: boolean;
 };
 
-export const Carousel = ({ children, slidesToShow = 1, ...props }: CarouselProps) => {
+export const Carousel = ({ children, slidesToShow = 1, ...props }: CarouselType) => {
     const ref = useRef<any>(null);
 
     return (

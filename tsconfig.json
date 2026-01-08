@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "jsx": "react-jsx",
+        "types": ["react", "react-dom"],
         "target": "ES2020",
         "module": "CommonJS",
         "strict": true,
@@ -9,6 +10,7 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": "./src",
         "paths": {
+            "@/*": ["*"],
             "pages/*": ["pages/*"],
             "assets/*": ["assets/*"],
             "utils/*": ["utils/*"],
@@ -19,9 +21,8 @@
         "rootDir": "./src",
         "resolveJsonModule": true,
         "typeRoots": ["./node_modules/@types"],
-        "lib": ["ES2020", "DOM"]
+        "lib": ["ES2020", "DOM", "DOM.Iterable"]
     },
-    "include": ["src", "src/svg.d.ts"],
+    "include": ["src"],
     "exclude": ["node_modules", "dist"]
-    // "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }

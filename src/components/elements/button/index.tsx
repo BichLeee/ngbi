@@ -1,8 +1,8 @@
-import { Button as AntButton } from "antd";
+import { Button as AntButton, ButtonProps } from "antd";
 import React from "react";
 import styled from "styled-components";
 
-type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonType = Omit<ButtonProps, "variant"> & {
     children?: React.ReactNode;
     variant?: "primary" | "default" | "secondary";
     className?: string;
