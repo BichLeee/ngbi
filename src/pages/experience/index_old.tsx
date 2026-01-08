@@ -216,7 +216,10 @@ export const Experience = () => {
                         </Col>
                     </Row>
                     <Flex gap={30}>
-                        <Link href="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1" target="_blank">
+                        <Link
+                            href="https://www.figma.com/design/Y9bA0345PJUPOqzFEoyN7u/TKGD_Nhom4?node-id=1-4&t=n3Dxu7H490wxnTK2-1"
+                            target="_blank"
+                        >
                             Figma
                         </Link>
                     </Flex>
@@ -310,7 +313,8 @@ const WorkingExperiencesTimeLine = () => {
 const Container = styled.div`
     padding-top: 85px !important;
     max-width: var(--max-width);
-    padding: var(--page-padding);
+    padding-inline: var(--page-padding-inline);
+    padding-block: var(--page-padding-block);
     display: flex;
     flex-direction: column;
     align-items: center;

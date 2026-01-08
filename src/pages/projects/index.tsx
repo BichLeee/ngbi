@@ -61,7 +61,7 @@ const ProjectDrawer = () => {
             placement="bottom"
             size={drawerHeight}
             onClose={() => setSearchParams({})}
-            styles={{ header: { display: "none" }, body: { overflowY: "auto" } }}
+            styles={{ header: { display: "none" }, body: { overflowY: "auto", paddingBottom: "60px" } }}
         >
             <DrawerHeader>
                 <Typography transform="uppercase" color="#000" weight="semibold">
@@ -79,7 +79,7 @@ const ProjectDrawer = () => {
                 <Typography variant="label1" color="#000" weight="semibold" top={20}>
                     Project overview
                 </Typography>
-                <Row gutter={100}>
+                <Row gutter={[100, 40]}>
                     <Col xs={24} sm={18}>
                         <Typography color="#000" top={16}>
                             {projectObj?.desc}
@@ -192,7 +192,8 @@ export const Projects = () => {
 };
 
 const Container = styled.div`
-    padding: var(--page-padding);
+    padding-inline: var(--page-padding-inline);
+    padding-block: var(--page-padding-block);
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
@@ -306,6 +307,10 @@ const ProjectTitle = styled.div`
     padding-top: 6rem;
     padding-bottom: 28px;
     letter-spacing: -2px;
+
+    @media (max-width: 768px) {
+        font-size: 6rem;
+    }
 `;
 
 const CarouselImage = styled.img`

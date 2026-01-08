@@ -4,16 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import logo from "assets/images/logo.png";
-import { LogoInstagram, LogoLinkedin, LogoMail, LogoPhone } from "assets/svgs";
-
-const ContactItem = ({ icon, link }: { icon: React.ReactNode; link: string }) => {
-    return (
-        <ContactItemWrapper to={link || "#"} target="_blank">
-            <IconContainer>{icon}</IconContainer>
-            <IconContainer $isHover>{icon}</IconContainer>
-        </ContactItemWrapper>
-    );
-};
 
 export const Header = () => {
     const { pathname } = useLocation();
@@ -34,19 +24,13 @@ export const Header = () => {
                     <NavItem to="/projects" $active={pathname === "/projects"}>
                         Projects
                     </NavItem>
-                    <ContactGroup align="center" gap={16}>
-                        <ContactItem icon={<LogoLinkedin />} link="https://www.linkedin.com/in/bích-lê-sophie" />
-                        <ContactItem icon={<LogoInstagram />} link="https://www.instagram.com/biccccc_" />
-                        <ContactItem icon={<LogoPhone />} link="tel:+84774777162" />
-                        <ContactItem icon={<LogoMail />} link="mailto:bich1042002@gmail.com" />
-                    </ContactGroup>
                 </Nav>
             </Inner>
         </Container>
     );
 };
 
-export const Container = styled.header`
+const Container = styled.header`
     width: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0) 99%);
     backdrop-filter: blur(12px);
@@ -58,26 +42,26 @@ export const Container = styled.header`
     z-index: 10;
 `;
 
-export const Inner = styled.div`
+const Inner = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: var(--max-width);
-    padding: 0 var(--page-padding);
+    padding: 0 var(--page-padding-inline);
     width: 100%;
     margin: 0 auto;
     height: 85px;
 `;
 
-export const Logo = styled.img`
+const Logo = styled.img`
     height: 45px;
 
     @media screen and (max-width: 576px) {
-        height: 35px;
+        height: 25px;
     }
 `;
 
-export const Nav = styled.nav`
+const Nav = styled.nav`
     display: flex;
     align-items: center;
     gap: 40px;
@@ -87,7 +71,7 @@ export const Nav = styled.nav`
     }
 `;
 
-export const NavItem = styled(Link)<{ $active?: boolean }>`
+const NavItem = styled(Link)<{ $active?: boolean }>`
     font-size: 16px;
     font-weight: 600;
     color: white;
@@ -100,41 +84,5 @@ export const NavItem = styled(Link)<{ $active?: boolean }>`
 
     @media screen and (max-width: 768px) {
         font-size: 14px;
-    }
-`;
-
-export const ContactGroup = styled(Flex)`
-    @media screen and (max-width: 576px) {
-        display: none;
-    }
-`;
-
-export const ContactItemWrapper = styled(Link)`
-    width: 18px;
-    height: 18px;
-    position: relative;
-    overflow: hidden;
-
-    &:hover {
-        color: #fff !important;
-    }
-
-    svg {
-        width: 18px;
-        height: 18px;
-    }
-`;
-
-export const IconContainer = styled.span<{ $isHover?: boolean }>`
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-    top: ${(props) => (props.$isHover ? "100%" : "0")};
-    transform: translateY(0);
-
-    ${ContactItemWrapper}:hover & {
-        transform: translateY(${(props) => (props.$isHover ? "-100%" : "-100%")});
     }
 `;

@@ -125,7 +125,7 @@ const Container = styled.div`
     position: relative;
     margin-top: calc(100vw * 0.13);
     margin-bottom: calc(100vw * 0.06);
-    padding-inline: var(--page-padding);
+    padding-inline: var(--page-padding-inline);
 
     @media screen and (max-width: 1000px) {
         min-height: 100%;

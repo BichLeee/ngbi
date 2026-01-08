@@ -43,7 +43,6 @@ const Container = styled.div`
     width: 100vw;
     min-height: calc(100vh - 85px);
     position: relative;
-    padding-inline: var(--page-padding);
 `;
 
 const Image = styled.img`
@@ -69,6 +68,6 @@ const ContactContent = styled(Flex)`
     height: 100%;
 
     @media (max-width: 1000px) {
-        padding-inline: var(--page-padding);
+        padding-inline: var(--page-padding-inline);
     }
 `;

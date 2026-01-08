@@ -8,12 +8,14 @@
     --primary: #f7b262;
     /* --primary: #608887; */
     --secondary: #fff;
-    --page-padding: 90px;
+    --page-padding-block: 90px;
+    --page-padding-inline: 90px;
 }
 
 @media (max-width: 768px) {
     :root {
-        --page-padding: 85px 20px 20px 20px;
+        --page-padding-block: 85px 20px;
+        --page-padding-inline: 20px;
     }
 }
 

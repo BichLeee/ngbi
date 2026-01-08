@@ -74,7 +74,7 @@ const Container = styled.div`
     position: relative;
     margin-bottom: 20vh;
     margin-top: 20vh;
-    padding-inline: var(--page-padding);
+    padding-inline: var(--page-padding-inline);
 `;
 
 const Circle = styled.div`

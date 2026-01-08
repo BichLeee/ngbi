@@ -45,14 +45,7 @@ export const Banner = () => {
                 <Flex justify="space-between" align="center">
                     <Name>
                         <div>
-                            {"Ngoc".split("").map((t, i) => (
-                                <Letter key={i} className="my-name">
-                                    {t}
-                                </Letter>
-                            ))}
-                        </div>
-                        <div>
-                            {"Bich".split("").map((t, i) => (
+                            {"NgocBich".split("").map((t, i) => (
                                 <Letter key={i} className="my-name">
                                     {t}
                                 </Letter>
@@ -70,26 +63,14 @@ export const Banner = () => {
                                 ))}
                         </div>
                     </Description>
-                    <div id="next-arrow">
+                    {/* <div id="next-arrow">
                         <NextArrow />
-                    </div>
+                    </div> */}
                 </Flex>
             </Footer>
         </Container>
     );
 };
-
-// const creatingAnimatedText = ({ text }: { text: string[] }) => {
-//     return (
-//         <>
-//             {text.map((t, i) => (
-//                 <FloatingText key={i} delay={i * 0.05} className="floating-text">
-//                     {t}
-//                 </FloatingText>
-//             ))}
-//         </>
-//     );
-// };
 
 const Container = styled.div`
     width: 100vw;
@@ -123,7 +104,7 @@ const Footer = styled.div`
     bottom: 20px;
     left: 0;
     right: 0;
-    padding-inline: var(--page-padding);
+    padding-inline: var(--page-padding-inline);
     backdrop-filter: brightness(0.5);
 `;
 

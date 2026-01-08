@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
@@ -8,9 +8,21 @@ import { LandingPage, Experience } from "pages";
 import { MainLayout } from "components/layouts/MainLayout";
 import "./App.css";
 import { Projects } from "pages/projects";
+import { useEffect } from "react";
 
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
+
+function ScrollToTop() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        // Scroll to top instantly
+        window.scrollTo(0, 0);
+    }, [pathname]); // Runs whenever the route changes
+
+    return null; // This component doesn't render anything
+}
 
 function App() {
     return (
@@ -46,6 +58,7 @@ function App() {
             <div id="smooth-wrapper">
                 <div id="smooth-content">
                     <BrowserRouter>
+                        <ScrollToTop />
                         <Routes>
                             <Route
                                 path="/"

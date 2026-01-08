@@ -105,7 +105,8 @@ export const Experience = () => {
 
 const Container = styled.div`
     max-width: 900px;
-    padding: var(--page-padding);
+    padding-inline: var(--page-padding-inline);
+    padding-block: var(--page-padding-block);
     margin: 0 auto;
     overflow-y: auto;
     overflow-x: hidden;
