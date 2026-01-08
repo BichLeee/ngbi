@@ -31,6 +31,9 @@ export const Header = () => {
                     <NavItem to="/exp" $active={pathname === "/exp"}>
                         Experience
                     </NavItem>
+                    <NavItem to="/projects" $active={pathname === "/projects"}>
+                        Projects
+                    </NavItem>
                     <ContactGroup align="center" gap={16}>
                         <ContactItem icon={<LogoLinkedin />} link="https://www.linkedin.com/in/bích-lê-sophie" />
                         <ContactItem icon={<LogoInstagram />} link="https://www.instagram.com/biccccc_" />

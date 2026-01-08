@@ -7,6 +7,13 @@ import ScribbleCircle from "./scribble-circle.svg";
 import ScribbleUnderline from "./scribble-quiggle-underline.svg";
 import ArrowLeft from "./arrow-left.svg";
 import ArrowRight from "./arrow-right.svg";
+import IconX from "./icon-x.svg";
+import IconClock from "./icon-clock.svg";
+import IconHome from "./icon-home.svg";
+import IconPages from "./icon-pages.svg";
+import IconEmployee from "./icon-employee.svg";
+import IconEmployer from "./icon-employer.svg";
+import IconAdmin from "./icon-admin.svg";
 
 export {
     LogoInstagram,
@@ -18,4 +25,11 @@ export {
     ScribbleUnderline,
     ArrowLeft,
     ArrowRight,
+    IconX,
+    IconClock,
+    IconHome,
+    IconPages,
+    IconEmployee,
+    IconEmployer,
+    IconAdmin,
 };

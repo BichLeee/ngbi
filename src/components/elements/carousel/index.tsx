@@ -17,7 +17,7 @@ export const Carousel = ({ children, slidesToShow = 1, ...props }: CarouselProps
     const ref = useRef<any>(null);
 
     return (
-        <div>
+        <div style={{ width: "100%", overflowX: "hidden" }}>
             <StyledCarousel slidesToShow={slidesToShow} ref={ref || null} {...props}>
                 {children}
             </StyledCarousel>

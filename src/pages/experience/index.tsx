@@ -81,7 +81,6 @@ export const Experience = () => {
                     trigger: containerRef.current,
                     start: "top+=0px top",
                     end: "top+=200px top",
-                    markers: true,
                     scrub: 1,
                 },
             });

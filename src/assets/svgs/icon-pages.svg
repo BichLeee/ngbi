@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="xMidYMid meet" data-bbox="1 2 18 16" xmlns="http://www.w3.org/2000/svg"
+    viewBox="1 2 18 16" height="20" width="20" data-type="color" role="presentation"
+    aria-hidden="true" aria-label="" color="#000">
+    <g>
+        <path fill="currentColor"
+            d="M12 2a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z" data-color="1"></path>
+        <path fill="currentColor"
+            d="M2.333 5c.369 0 .667.298.667.667v8.666a.666.666 0 0 1-.667.667A1.333 1.333 0 0 1 1 13.667V6.333C1 5.597 1.597 5 2.333 5"
+            opacity=".5" data-color="1"></path>
+        <path fill="currentColor"
+            d="M17.667 5C18.403 5 19 5.597 19 6.333v7.334c0 .736-.597 1.333-1.333 1.333a.666.666 0 0 1-.667-.667V5.667c0-.369.298-.667.667-.667"
+            opacity=".5" data-color="1"></path>
+    </g>
+</svg>

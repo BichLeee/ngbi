@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LandingPage, Experience } from "pages";
 import { MainLayout } from "components/layouts/MainLayout";
 import "./App.css";
+import { Projects } from "pages/projects";
 
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -25,14 +26,14 @@ function App() {
                         // colorPrimaryBg: "var(--bgColorButton)",
                         // contentFontSizeSM: 10,
                         // contentLineHeightSM: 1.5,
-                        // paddingBlockSM: 8,
-                        // paddingInlineSM: 20,
-                        // controlHeightSM: 32,
+                        paddingBlockSM: 8,
+                        paddingInlineSM: 12,
+                        controlHeightSM: 30,
                         // contentFontSize: 12,
                         // contentLineHeight: 1.5,
-                        // paddingBlock: 10,
-                        // paddingInline: 24,
-                        // controlHeight: 36,
+                        paddingBlock: 10,
+                        paddingInline: 24,
+                        controlHeight: 36,
                         // contentFontSizeLG: 14,
                         // contentLineHeightLG: 22 / 14,
                         // paddingBlockLG: 13,
@@ -59,6 +60,14 @@ function App() {
                                 element={
                                     <MainLayout>
                                         <Experience />
+                                    </MainLayout>
+                                }
+                            />
+                            <Route
+                                path="/projects"
+                                element={
+                                    <MainLayout>
+                                        <Projects />
                                     </MainLayout>
                                 }
                             />
