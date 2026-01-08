@@ -8,7 +8,7 @@ export const LandingPage = () => {
             <Highlight />
             <NgBi />
             <Skills />
-            <Projects />
+            {/* <Projects /> */}
             <Contact />
         </div>
     );

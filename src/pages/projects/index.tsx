@@ -154,7 +154,7 @@ const ProjectDrawer = () => {
 
 export const Projects = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [_, setSearchParams] = useSearchParams();
+    const [, setSearchParams] = useSearchParams();
 
     useGSAP(
         () => {
