@@ -1,88 +1,117 @@
-import React from "react";
-import { Flex } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import * as Tabs from "@radix-ui/react-tabs";
 
-import logo from "assets/images/logo.png";
+import { AppContext } from "@/contexts/appContext";
+import { Experience, LandingPage } from "@/pages";
+import { Projects } from "@/pages/projects";
 
 export const Header = () => {
-    const { pathname } = useLocation();
+    const navRef = useRef<HTMLElement>(null);
+    const navigate = useNavigate();
+    const { introHasPlayed } = useContext(AppContext);
+
+    useGSAP(
+        () => {
+            gsap.from(navRef.current, {
+                opacity: 0,
+                duration: 0.9,
+                delay: introHasPlayed ? 0.1 : 2.0,
+                ease: "power2.out",
+            });
+        },
+        { scope: navRef },
+    );
 
     return (
-        <Container>
-            <Inner>
-                <Link to="/">
-                    <Logo src={logo} alt="logo" />
-                </Link>
-                <Nav>
-                    <NavItem to="/" $active={pathname === "/"}>
-                        Overview
-                    </NavItem>
-                    <NavItem to="/exp" $active={pathname === "/exp"}>
-                        Experience
-                    </NavItem>
-                    <NavItem to="/projects" $active={pathname === "/projects"}>
-                        Projects
-                    </NavItem>
-                </Nav>
-            </Inner>
-        </Container>
+        <AppRoot value="overview" onValueChange={(value) => navigate(`/${value}`)}>
+            <AppNav ref={navRef}>
+                {/* Plain button — Tabs.Trigger outside Tabs.List causes RovingFocusGroup error */}
+                <AppNavLogo onClick={() => navigate("/")}>
+                    ng&apos;bi
+                </AppNavLogo>
+                <AppNavList>
+                    {(["overview", "experience", "projects"] as const).map((p) => (
+                        <AppNavTrigger key={p} value={p}>
+                            {p}
+                        </AppNavTrigger>
+                    ))}
+                </AppNavList>
+            </AppNav>
+            <Tabs.Content value="overview">
+                <LandingPage />
+            </Tabs.Content>
+            <Tabs.Content value="experience">
+                <Experience />
+            </Tabs.Content>
+            <Tabs.Content value="projects">
+                <Projects />
+            </Tabs.Content>
+        </AppRoot>
     );
 };
 
-const Container = styled.header`
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0) 99%);
-    backdrop-filter: blur(12px);
-    background-color: transparent !important;
+const AppRoot = styled(Tabs.Root)`
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--fg);
+`;
+
+const AppNav = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10;
-`;
-
-const Inner = styled.div`
+    z-index: 50;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    max-width: var(--max-width);
-    padding: 0 var(--page-padding-inline);
-    width: 100%;
-    margin: 0 auto;
-    height: 85px;
+    padding: 20px var(--px);
 `;
 
-const Logo = styled.img`
-    height: 45px;
-
-    @media screen and (max-width: 576px) {
-        height: 25px;
-    }
-`;
-
-const Nav = styled.nav`
-    display: flex;
-    align-items: center;
-    gap: 40px;
-
-    @media screen and (max-width: 768px) {
-        gap: 20px;
-    }
-`;
-
-const NavItem = styled(Link)<{ $active?: boolean }>`
-    font-size: 16px;
-    font-weight: 600;
+const AppNavLogo = styled.button`
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.05em;
     color: white;
-    opacity: ${(props) => (props.$active ? 1 : 0.7)};
-    transition: opacity 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+    padding: 0;
 
     &:hover {
-        opacity: 1;
+        opacity: 0.45;
     }
+`;
 
-    @media screen and (max-width: 768px) {
-        font-size: 14px;
+const AppNavList = styled(Tabs.List)`
+    display: flex; align-items: center; gap: 4px;
+    background: none; border: none; box-shadow: none;
+`;
+
+const AppNavTrigger = styled(Tabs.Trigger)`
+    padding: 5px 13px;
+    font-size: 13px;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.4);
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition:
+        color 0.25s,
+        border-color 0.25s;
+
+    &:hover {
+        color: rgba(255, 255, 255, 0.78);
+    }
+    &[data-state="active"] {
+        color: white;
+        border-bottom-color: white;
     }
 `;

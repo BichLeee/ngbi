@@ -16,7 +16,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 const Container = styled.div`
-    padding-bottom: 200px;
+    /* padding-bottom: 200px; */
 `;
 
 const Content = styled.div`
