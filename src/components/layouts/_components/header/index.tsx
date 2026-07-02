@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -8,6 +8,7 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { AppContext } from "@/contexts/appContext";
 import { Experience, LandingPage } from "@/pages";
 import { Projects } from "@/pages/projects";
+import { ROUTES } from "@/utils/route";
 
 export const Header = () => {
     const navRef = useRef<HTMLElement>(null);
@@ -27,18 +28,14 @@ export const Header = () => {
     );
 
     return (
-        <AppRoot value="overview" onValueChange={(value) => navigate(`/${value}`)}>
+        <AppRoot value={ROUTES.LANDING} onValueChange={(value) => navigate(value)}>
             <AppNav ref={navRef}>
                 {/* Plain button — Tabs.Trigger outside Tabs.List causes RovingFocusGroup error */}
-                <AppNavLogo onClick={() => navigate("/")}>
-                    ng&apos;bi
-                </AppNavLogo>
+                <AppNavLogo onClick={() => navigate("/")}>ng&apos;bi</AppNavLogo>
                 <AppNavList>
-                    {(["overview", "experience", "projects"] as const).map((p) => (
-                        <AppNavTrigger key={p} value={p}>
-                            {p}
-                        </AppNavTrigger>
-                    ))}
+                    <AppNavTrigger value={ROUTES.LANDING}>Overview</AppNavTrigger>
+                    <AppNavTrigger value={ROUTES.EXPERIENCE}>Experience</AppNavTrigger>
+                    <AppNavTrigger value={ROUTES.PROJECTS}>Projects</AppNavTrigger>
                 </AppNavList>
             </AppNav>
             <Tabs.Content value="overview">
@@ -55,9 +52,9 @@ export const Header = () => {
 };
 
 const AppRoot = styled(Tabs.Root)`
-    min-height: 100vh;
     background: var(--bg);
     color: var(--fg);
+    /* min-height: 100vh; */
 `;
 
 const AppNav = styled.nav`
@@ -90,8 +87,12 @@ const AppNavLogo = styled.button`
 `;
 
 const AppNavList = styled(Tabs.List)`
-    display: flex; align-items: center; gap: 4px;
-    background: none; border: none; box-shadow: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    box-shadow: none;
 `;
 
 const AppNavTrigger = styled(Tabs.Trigger)`

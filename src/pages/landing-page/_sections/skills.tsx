@@ -1,25 +1,22 @@
 import { useLayoutEffect, useRef } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import * as Progress from "@radix-ui/react-progress";
 
-import { Section } from "../_components";
-import { Marquee } from "@/components/modules";
 import netBg from "@/assets/images/net-bg.png";
-import { genMasonryStyle } from "antd/es/masonry/style";
 
 const SKILLS = [
-    { name: "React", level: 90, top: "10%", left: "40%" },
-    { name: "TypeScript", level: 80, top: "20%", left: "11%" },
-    { name: "Next.js", level: 75, top: "20%", left: "50%" },
-    { name: "Tailwind CSS", level: 80, top: "40%", left: "90%" },
-    { name: "Node.js", level: 70, top: "50%", left: "75%" },
-    { name: "Figma", level: 70, top: "60%", left: "30%" },
-    { name: "Git", level: 80, top: "70%", left: "20%" },
-    { name: "REST APIs", level: 65, top: "80%", left: "50%" },
-    { name: "Ant Design", level: 90, top: "70%", left: "85%" },
-    { name: "GSAP", level: 70, top: "25%", left: "70%" },
+    { name: "React", level: 90, top: "100px", left: "40%" },
+    { name: "TypeScript", level: 80, top: "150px", left: "11%" },
+    { name: "Next.js", level: 75, top: "200px", left: "50%" },
+    { name: "Tailwind CSS", level: 80, top: "300px", left: "90%" },
+    { name: "Node.js", level: 70, top: "400px", left: "75%" },
+    { name: "Figma", level: 70, top: "400px", left: "30%" },
+    { name: "Git", level: 80, top: "500px", left: "20%" },
+    { name: "REST APIs", level: 65, top: "350px", left: "20%" },
+    { name: "Ant Design", level: 90, top: "410px", left: "85%" },
+    { name: "GSAP", level: 70, top: "150px", left: "70%" },
 ];
 
 const ALL_SKILLS = [
@@ -102,64 +99,85 @@ const SkillBar = ({ name, level }: { name: string; level: number }) => {
 };
 
 export const Skills = () => {
-    const secRef = useRef<HTMLElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const secRef = useRef<HTMLDivElement>(null);
+    const contactNowButtonRef = useRef<HTMLButtonElement>(null);
 
     useGSAP(
         () => {
-            gsap.fromTo(
-                ".sk-heading",
-                { y: 50, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.1,
-                    ease: "power3.out",
+            if (secRef.current) {
+                // console.log(containerRef.current.clientWidth, secRef.current!.clientHeight);
+
+                const box = document.querySelector(".skill-box") as HTMLElement;
+
+                console.log("before", getComputedStyle(box).top);
+
+                requestAnimationFrame(() => {
+                    console.log("after", getComputedStyle(box).top);
+                });
+
+                const targetTop = secRef.current!.offsetHeight + 14;
+                const targetLeft = secRef.current!.offsetWidth / 2 - 14;
+
+                console.log("targetTop", targetTop);
+
+                const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: secRef.current,
-                        start: "top 82%",
+                        start: "center center",
+                        end: "bottom+=300px",
+                        scrub: true,
+                        // markers: true,
                         toggleActions: "play none none reverse",
                     },
-                },
-            );
-            // gsap.utils.toArray(".skill-box").forEach((box: any, index: number) => {
-            //     gsap.fromTo(
-            //         box,
-            //         { y: 20, opacity: 0 },
-            //         {
-            //             scrollTrigger: {
-            //                 trigger: secRef.current,
-            //                 start: "top+=100px ",
-            //                 toggleActions: "play none none reverse",
-            //             },
-            //             y: 0,
-            //             opacity: 0.66,
-            //             duration: 0.6,
-            //             stagger: 0.08,
-            //             ease: "power1",
-            //             delay: index * 0.01,
-            //         },
-            //     );
-            // });
-            // gsap.fromTo(
-            //     ".skill-box-item",
-            //     {
-            //         y: 0,
-            //     },
-            //     {
-            //         x: `${window.innerWidth / 2}px`,
-            //         y: `500px`,
-            //         opacity: 1,
-            //         scrollTrigger: {
-            //             trigger: containerRef.current,
-            //             start: "top top",
-            //             end: "bottom top",
-            //             // pin: true,
-            //             scrub: 1,
-            //             markers: true
-            //         },
-            //     },
-            // );
+                });
+                tl.to(".skill-box-name", {
+                    opacity: 0,
+                    duration: 0.01,
+                });
+
+                tl.to(
+                    ".skill-box",
+                    {
+                        left: targetLeft,
+                        top: targetTop,
+                        width: "28px",
+                        height: "28px",
+                        boxShadow: "rgba(0,0,0,.01) 0 0 0 6px",
+                        duration: 0.2,
+                        borderRadius: "100%",
+                        autoAlpha: 1,
+                    },
+                    "<",
+                );
+
+                tl.to(".contact-now-button", {
+                    duration: 0.0001,
+                    opacity: 1,
+                });
+
+                tl.to(".skill-box", {
+                    duration: 0.0001,
+                    opacity: 0,
+                });
+
+                tl.to(
+                    ".contact-now-button",
+                    {
+                        scale: 1,
+                        top: "calc(100% + 800px)",
+                        duration: 0.2,
+                        padding: "13px 40px",
+                        width: "300px",
+                        height: "40px",
+                    },
+                    "<",
+                );
+
+                tl.to(".contact-now-button-text", {
+                    opacity: 1,
+                    duration: 0.01,
+                });
+            }
         },
         { scope: secRef },
     );
@@ -168,58 +186,41 @@ export const Skills = () => {
         secRef.current?.style.setProperty("background", "#000");
     }, [secRef.current]);
 
+    const handleContactNow = () => {
+        window.location.href = "mailto:bich1042002@gmail.com";
+    };
+
     return (
-        <>
-            <Section
-                secRef={secRef}
-                preHeading="My"
-                heading="Skills"
-                headingProps={{ style: { fontSize: "clamp(2.2rem, 6vw, 6rem)" }, className: "sk-heading" }}
-            >
-                <SkillsGrid>
-                    {SKILLS.map((s) => (
-                        <SkillBar key={s.name} name={s.name} level={s.level} />
-                    ))}
-                </SkillsGrid>
-                {/* <AllSkillsList>
-                {ALL_SKILLS.map((s) => (
-                    <SkillBox className="skill-box" key={s}>
-                        {s}
+        <Wrapper>
+            <Container ref={secRef}>
+                <img src={netBg} alt="net-bg" height="100%" width="100%" />
+                <LargeText>My Skills</LargeText>
+                {SKILLS.map((s) => (
+                    <SkillBox className="skill-box" key={s.name} style={{ top: s.top, left: s.left }}>
+                        <span className="skill-box-name" style={{ textWrap: "nowrap" }}>{s.name}</span>
                     </SkillBox>
                 ))}
-                </AllSkillsList> */}
-                {/* <div style={{ position: "relative" }}>
-                    <MarqueeOuter aria-hidden="true">
-                        <MarqueeTrack>
-                            {ALL_SKILLS.map((item, i) => (
-                                <MarqueeItem key={i}>{item}</MarqueeItem>
-                            ))}
-                        </MarqueeTrack>
-                    </MarqueeOuter>
-                    <DynamicMorphing />
-                </div> */}
-                <Container ref={containerRef}>
-                    <img src={netBg} alt="net-bg" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                    <LargeText>My Skills</LargeText>
-                    {SKILLS.map((s) => (
-                        <SkillBox className="skill-box-item" key={s.name} style={{ top: s.top, left: s.left }}>
-                            {s.name}
-                        </SkillBox>
-                    ))}
-                </Container>
-            </Section>
-        </>
+                <ContactNowButton className="contact-now-button" ref={contactNowButtonRef} onClick={handleContactNow}>
+                    <span className="contact-now-button-text">CONTACT NOW</span>
+                </ContactNowButton>
+            </Container>
+        </Wrapper>
     );
 };
 
-const SkillsGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 56px;
+const Wrapper = styled.div`
+    background: #000;
+    padding: var(--section-py) var(--px);
+`;
 
-    @media (max-width: 700px) {
-        grid-template-columns: 1fr;
-    }
+const Container = styled.div`
+    max-width: var(--max);
+    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
+    height: fit-content;
+    padding-top: 80px;
+    margin-bottom: 200px;
 `;
 
 const SkillBarRoot = styled.div`
@@ -258,29 +259,18 @@ const ProgressIndicator = styled(Progress.Indicator)`
     width: 0;
 `;
 
-const AllSkillsList = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-inline: calc(var(--px) * -1 + 10px);
-    margin-top: 8rem;
-    width: fit-content;
-    align-items: center;
-    justify-content: center;
-`;
-
 const SkillBox = styled.div`
-    padding: 6px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 6px 6px;
+    /* border: 1px solid rgba(0, 0, 0, 0.5); */
+    background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: background 0.3s;
     font-size: 13px;
     font-weight: 500;
-    width: fit-content;
     position: absolute;
+    width: fit-content;
 
     z-index: 1;
-    border-radius: 2px;
+    border-radius: 4px;
 
     &:hover {
         /* background: rgba(255, 255, 255, 0.2); */
@@ -288,48 +278,37 @@ const SkillBox = styled.div`
     }
 `;
 
-const MarqueeOuter = styled.div`
-    overflow: hidden;
-    margin-top: 80px;
-`;
-const MarqueeScroll = keyframes` 0%   { transform: translateX(0); } 100% { transform: translateX(-50%); } `;
-
-const MarqueeTrack = styled.div`
-    display: flex;
-    gap: 40px;
-    will-change: transform;
-    animation: ${MarqueeScroll} 20s linear infinite;
-`;
-const MarqueeItem = styled.span`
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 13px;
-    color: white;
-    white-space: nowrap;
-    flex-shrink: 0;
-    letter-spacing: -0.03em;
-`;
-
-const DynamicMorphing = styled.div`
-    position: absolute;
-    top: 8px;
-    left: -20vw;
-    width: calc(100vw + 40vw);
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-`;
-
-const Container = styled.div`
-    position: relative;
-`;
-
 const LargeText = styled.p`
     font-size: clamp(1.8rem, 6vw, 5rem);
     font-weight: 300;
     line-height: 1.45;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: var(--font-serif);
+`;
+
+const ContactNowButton = styled.button`
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: rgba(96, 96, 96, 0.1) 0 0 0 6px;
+    color: #000;
     font-family: var(--font-mono);
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    border: none;
+    border-radius: 999px;
+    position: absolute;
+    left: 50%;
+    top: calc(100%);
+    transform: translate(-50%, 50%);
+    opacity: 1;
+    width: 28px;
+    height: 28px;
+    opacity: 0;
+    z-index: 1;
+
+    .contact-now-button-text {
+        opacity: 0;
+    }
 `;

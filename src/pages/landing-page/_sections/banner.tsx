@@ -113,6 +113,8 @@ const HeroImage = styled.img`
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    transform: scale(1.1);
+    object-position: center bottom;
 `;
 
 const HeroOverlay = styled.div`
