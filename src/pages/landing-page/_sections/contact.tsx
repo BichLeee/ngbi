@@ -32,7 +32,6 @@ export const Contact = () => {
                         start: "top-=50px top",
                         end: "top top",
                         toggleActions: "play none none reverse",
-                        markers: true,
                     },
                     delay: 0.3,
                 },

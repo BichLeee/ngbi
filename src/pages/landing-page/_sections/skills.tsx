@@ -142,7 +142,7 @@ export const Skills = () => {
                         top: targetTop,
                         width: "28px",
                         height: "28px",
-                        boxShadow: "rgba(0,0,0,.01) 0 0 0 6px",
+                        boxShadow: "rgba(0,0,0,.03) 0 0 0 6px",
                         duration: 0.2,
                         borderRadius: "100%",
                         autoAlpha: 1,
@@ -260,14 +260,14 @@ const ProgressIndicator = styled(Progress.Indicator)`
 `;
 
 const SkillBox = styled.div`
-    padding: 6px 6px;
+    padding: 6px 12px;
     /* border: 1px solid rgba(0, 0, 0, 0.5); */
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     font-size: 13px;
     font-weight: 500;
     position: absolute;
-    width: fit-content;
+    width: max-content;
 
     z-index: 1;
     border-radius: 4px;
@@ -291,7 +291,7 @@ const LargeText = styled.p`
 
 const ContactNowButton = styled.button`
     background: rgba(255, 255, 255, 0.7);
-    box-shadow: rgba(96, 96, 96, 0.1) 0 0 0 6px;
+    box-shadow: rgba(96, 96, 96, 0.3) 0 0 0 6px;
     color: #000;
     font-family: var(--font-mono);
     letter-spacing: 0.15em;
