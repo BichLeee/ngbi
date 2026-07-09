@@ -85,7 +85,7 @@ export const Banner = () => {
                     </HeroTagline>
                 </HeroBottom>
             </Hero>
-            <MobileTagline>{tagline}</MobileTagline>
+            {/* <MobileTagline>{tagline}</MobileTagline> */}
         </div>
     );
 };
@@ -110,7 +110,7 @@ const HeroImage = styled.img`
     position: absolute;
     inset: 0;
     width: 100%;
-    height: 100%;
+    height: 95%;
     object-fit: cover;
     object-position: center top;
     transform: scale(1.1);
@@ -127,7 +127,7 @@ const HeroBottom = styled.div`
     position: absolute;
     width: 100%;
     height: fit-content;
-    bottom: 10px;
+    bottom: 0px;
     left: 0;
     display: flex;
     justify-content: space-between;

@@ -31,40 +31,38 @@ function App() {
 
         return () => smoother.kill();
     }, []);
-    
+
     return (
         <div id="smooth-wrapper">
-            <div id="smooth-content">
-                <BrowserRouter>
-                    <ScrollToTop />
-                    <Routes>
-                        <Route
-                            path={ROUTES.LANDING}
-                            element={
-                                <MainLayout>
-                                    <LandingPage />
-                                </MainLayout>
-                            }
-                        />
-                        <Route
-                            path={ROUTES.EXPERIENCE}
-                            element={
-                                <MainLayout>
-                                    <Experience />
-                                </MainLayout>
-                            }
-                        />
-                        <Route
-                            path={ROUTES.PROJECTS}
-                            element={
-                                <MainLayout>
-                                    <Projects />
-                                </MainLayout>
-                            }
-                        />
-                    </Routes>
-                </BrowserRouter>
-            </div>
+            <BrowserRouter>
+                <ScrollToTop />
+                <Routes>
+                    <Route
+                        path={ROUTES.LANDING}
+                        element={
+                            <MainLayout>
+                                <LandingPage />
+                            </MainLayout>
+                        }
+                    />
+                    <Route
+                        path={ROUTES.EXPERIENCE}
+                        element={
+                            <MainLayout>
+                                <Experience />
+                            </MainLayout>
+                        }
+                    />
+                    <Route
+                        path={ROUTES.PROJECTS}
+                        element={
+                            <MainLayout>
+                                <Projects />
+                            </MainLayout>
+                        }
+                    />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

@@ -6,11 +6,11 @@ import { Header, Footer } from "./_components";
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <Container>
-            <div style={{ position: "relative", zIndex: 1 }}>
-                <Header />
+            <Header />
+            <div id="smooth-content">
                 <Content>{children}</Content>
+                <Footer />
             </div>
-            <Footer />
         </Container>
     );
 };

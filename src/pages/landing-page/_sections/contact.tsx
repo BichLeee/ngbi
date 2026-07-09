@@ -19,6 +19,7 @@ export const Contact = () => {
 
     useGSAP(
         () => {
+            const startPos = window.innerHeight - (secRef.current?.clientHeight ?? 0) + 100;
             gsap.fromTo(
                 secRef.current,
                 { y: 50, opacity: 0 },
@@ -29,11 +30,11 @@ export const Contact = () => {
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: secRef.current,
-                        start: "top-=50px top",
+                        start: `top-=${startPos}px top`,
                         end: "top top",
                         toggleActions: "play none none reverse",
+                        markers: true,
                     },
-                    delay: 0.3,
                 },
             );
             // gsap.fromTo(
@@ -82,7 +83,7 @@ const ContactIntro = styled.p`
     font-size: 15px;
     max-width: 520px;
     line-height: 1.82;
-    margin-bottom: 200px;
+    padding-bottom: 150px;
 `;
 const ContactLinks = styled.div`
     display: flex;

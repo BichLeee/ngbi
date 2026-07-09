@@ -13,16 +13,59 @@ import { ROUTES } from "@/utils/route";
 export const Header = () => {
     const navRef = useRef<HTMLElement>(null);
     const navigate = useNavigate();
-    const { introHasPlayed } = useContext(AppContext);
+    // const { introHasPlayed } = useContext(AppContext);
 
     useGSAP(
         () => {
+            // gsap.from(navRef.current, {
+            //     opacity: 0,
+            //     duration: 0.9,
+            //     delay: introHasPlayed ? 0.1 : 2.0,
+            //     ease: "power2.out",
+            //     scrollTrigger: {
+            //         trigger: "#smooth-content",
+            //         start: "top top",
+            //         end: "bottom bottom",
+            //         scrub: true,
+            //         markers: true,
+            //     },
+            // });
             gsap.from(navRef.current, {
                 opacity: 0,
                 duration: 0.9,
-                delay: introHasPlayed ? 0.1 : 2.0,
+                delay: 2.0,
                 ease: "power2.out",
             });
+
+            let lastScroll = window.scrollY;
+
+            const handleScroll = () => {
+                const currentScroll = window.scrollY;
+
+                if (currentScroll > lastScroll && currentScroll > 80) {
+                    // scrolling down
+                    gsap.to(navRef.current, {
+                        yPercent: -100,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        overwrite: "auto",
+                    });
+                } else {
+                    // scrolling up
+                    gsap.to(navRef.current, {
+                        yPercent: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        overwrite: "auto",
+                    });
+                }
+
+                lastScroll = currentScroll;
+            };
+
+            window.addEventListener("scroll", handleScroll);
+
+            return () => window.removeEventListener("scroll", handleScroll);
         },
         { scope: navRef },
     );

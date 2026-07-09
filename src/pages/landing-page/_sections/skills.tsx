@@ -7,96 +7,47 @@ import * as Progress from "@radix-ui/react-progress";
 import netBg from "@/assets/images/net-bg.png";
 
 const SKILLS = [
-    { name: "React", level: 90, top: "100px", left: "40%" },
-    { name: "TypeScript", level: 80, top: "150px", left: "11%" },
-    { name: "Next.js", level: 75, top: "200px", left: "50%" },
-    { name: "Tailwind CSS", level: 80, top: "300px", left: "90%" },
-    { name: "Node.js", level: 70, top: "400px", left: "75%" },
-    { name: "Figma", level: 70, top: "400px", left: "30%" },
-    { name: "Git", level: 80, top: "500px", left: "20%" },
-    { name: "REST APIs", level: 65, top: "350px", left: "20%" },
-    { name: "Ant Design", level: 90, top: "410px", left: "85%" },
-    { name: "GSAP", level: 70, top: "150px", left: "70%" },
+    { name: "React", level: 90, top: "2%", left: "40%" },
+    { name: "Vue.js", level: 90, top: "56%", left: "60%" },
+    { name: "Redux-Toolkit", level: 90, top: "20%", left: "43%" },
+    { name: "TypeScript", level: 80, top: "69%", left: "21%" },
+    { name: "Sass", level: 80, top: "15%", left: "21%" },
+    { name: "Next.js", level: 75, top: "40%", left: "50%" },
+    { name: "Tailwind CSS", level: 80, top: "30%", left: "90%" },
+    { name: "Node.js", level: 70, top: "40%", left: "75%" },
+    { name: "Figma", level: 70, top: "80%", left: "40%" },
+    { name: "Git", level: 80, top: "50%", left: "32%" },
+    { name: "REST APIs", level: 65, top: "35%", left: "4%" },
+    { name: "Ant Design", level: 90, top: "61%", left: "85%" },
+    { name: "GSAP", level: 70, top: "15%", left: "70%" },
+    { name: "Bootstrap", level: 70, top: "65%", left: "65%" },
 ];
 
-const ALL_SKILLS = [
-    "React",
-    "VueJS",
-    "ReduxToolkit",
-    "TypeScript",
-    "Javascript",
-    "HTML",
-    "CSS",
-    "Sass",
-    "Next.js",
-    "Tailwind CSS",
-    "Styled Components",
-    "GSAP",
-    "Bootstrap",
-    "Ant Design",
-    "Vuetify",
-    "Figma",
-    "Drupal",
-    "Node.js",
-    "REST APIs",
-    "Adobe Photoshop",
-    "Cursor",
-    "Git",
-    "Bitbucket",
-];
-
-const SkillBar = ({ name, level }: { name: string; level: number }) => {
-    const rootRef = useRef<HTMLDivElement>(null);
-    const indRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(
-        () => {
-            if (!indRef.current) return;
-            gsap.fromTo(
-                indRef.current,
-                { width: "0%" },
-                {
-                    width: `${level}%`,
-                    duration: 1.5,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: rootRef.current,
-                        start: "top 88%",
-                        toggleActions: "play none none reverse",
-                    },
-                },
-            );
-
-            gsap.fromTo(
-                indRef.current,
-                { width: "0%" },
-                {
-                    width: `${level}%`,
-                    duration: 1.5,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: rootRef.current,
-                        start: "top 88%",
-                        toggleActions: "play none none reverse",
-                    },
-                },
-            );
-        },
-        { scope: rootRef },
-    );
-
-    return (
-        <SkillBarRoot ref={rootRef}>
-            <SkillBarHead>
-                <SkillName>{name}</SkillName>
-                <SkillPct>{level}%</SkillPct>
-            </SkillBarHead>
-            <ProgressRoot value={level}>
-                <ProgressIndicator ref={indRef} />
-            </ProgressRoot>
-        </SkillBarRoot>
-    );
-};
+// const ALL_SKILLS = [
+//     "React",
+//     "VueJS",
+//     "ReduxToolkit",
+//     "TypeScript",
+//     "Javascript",
+//     "HTML",
+//     "CSS",
+//     "Sass",
+//     "Next.js",
+//     "Tailwind CSS",
+//     "Styled Components",
+//     "GSAP",
+//     "Bootstrap",
+//     "Ant Design",
+//     "Vuetify",
+//     "Figma",
+//     "Drupal",
+//     "Node.js",
+//     "REST APIs",
+//     "Adobe Photoshop",
+//     "Cursor",
+//     "Git",
+//     "Bitbucket",
+// ];
 
 export const Skills = () => {
     const secRef = useRef<HTMLDivElement>(null);
@@ -105,28 +56,13 @@ export const Skills = () => {
     useGSAP(
         () => {
             if (secRef.current) {
-                // console.log(containerRef.current.clientWidth, secRef.current!.clientHeight);
-
-                const box = document.querySelector(".skill-box") as HTMLElement;
-
-                console.log("before", getComputedStyle(box).top);
-
-                requestAnimationFrame(() => {
-                    console.log("after", getComputedStyle(box).top);
-                });
-
-                const targetTop = secRef.current!.offsetHeight + 14;
-                const targetLeft = secRef.current!.offsetWidth / 2 - 14;
-
-                console.log("targetTop", targetTop);
-
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: secRef.current,
-                        start: "center center",
-                        end: "bottom+=300px",
+                        start: "top+=100px top",
+                        end: "bottom+=100px",
                         scrub: true,
-                        // markers: true,
+                        markers: true,
                         toggleActions: "play none none reverse",
                     },
                 });
@@ -138,8 +74,8 @@ export const Skills = () => {
                 tl.to(
                     ".skill-box",
                     {
-                        left: targetLeft,
-                        top: targetTop,
+                        left: "calc(50% - 14px)",
+                        top: "calc(100% + 100px)",
                         width: "28px",
                         height: "28px",
                         boxShadow: "rgba(0,0,0,.03) 0 0 0 6px",
@@ -150,27 +86,34 @@ export const Skills = () => {
                     "<",
                 );
 
-                tl.to(".contact-now-button", {
-                    duration: 0.0001,
-                    opacity: 1,
-                });
-
                 tl.to(".skill-box", {
                     duration: 0.0001,
                     opacity: 0,
                 });
 
+                tl.to(".contact-now-button", {
+                    duration: 0.0001,
+                    opacity: 1,
+                });
+
                 tl.to(
                     ".contact-now-button",
                     {
-                        scale: 1,
-                        top: "calc(100% + 800px)",
+                        top: "calc(100% + 80vh)",
                         duration: 0.2,
-                        padding: "13px 40px",
-                        width: "300px",
-                        height: "40px",
                     },
                     "<",
+                );
+
+                tl.to(
+                    ".contact-now-button",
+                    {
+                        width: "300px",
+                        height: "40px",
+                        padding: "13px 40px",
+                        duration: 0.05,
+                    },
+                    "<40%",
                 );
 
                 tl.to(".contact-now-button-text", {
@@ -193,13 +136,17 @@ export const Skills = () => {
     return (
         <Wrapper>
             <Container ref={secRef}>
-                <img src={netBg} alt="net-bg" height="100%" width="100%" />
-                <LargeText>My Skills</LargeText>
-                {SKILLS.map((s) => (
-                    <SkillBox className="skill-box" key={s.name} style={{ top: s.top, left: s.left }}>
-                        <span className="skill-box-name" style={{ textWrap: "nowrap" }}>{s.name}</span>
-                    </SkillBox>
-                ))}
+                <LargeText>What I Work With</LargeText>
+                <div style={{ position: "relative", maxWidth: "1000px", margin: "50px auto 0px" }}>
+                    <img src={netBg} alt="net-bg" height="100%" width="100%" style={{ maxWidth: "1000px" }} />
+                    {SKILLS.map((s) => (
+                        <SkillBox className="skill-box" key={s.name} style={{ top: s.top, left: s.left }}>
+                            <span className="skill-box-name" style={{ textWrap: "nowrap" }}>
+                                {s.name}
+                            </span>
+                        </SkillBox>
+                    ))}
+                </div>
                 <ContactNowButton className="contact-now-button" ref={contactNowButtonRef} onClick={handleContactNow}>
                     <span className="contact-now-button-text">CONTACT NOW</span>
                 </ContactNowButton>
@@ -211,66 +158,31 @@ export const Skills = () => {
 const Wrapper = styled.div`
     background: #000;
     padding: var(--section-py) var(--px);
+    padding-bottom: 0px;
+    height: fit-content;
+    padding-bottom: 100px;
 `;
 
 const Container = styled.div`
     max-width: var(--max);
     margin: 0 auto;
     position: relative;
-    min-height: 100vh;
-    height: fit-content;
-    padding-top: 80px;
-    margin-bottom: 200px;
-`;
-
-const SkillBarRoot = styled.div`
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-`;
-
-const SkillBarHead = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 12px;
-`;
-const SkillName = styled.span`
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-`;
-const SkillPct = styled.span`
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.24);
-`;
-const ProgressRoot = styled(Progress.Root)`
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.07);
-`;
-const ProgressIndicator = styled(Progress.Indicator)`
-    height: 100%;
-    background: white;
-    width: 0;
+    height: 100vh;
+    padding-top: 100px;
 `;
 
 const SkillBox = styled.div`
     padding: 6px 12px;
-    /* border: 1px solid rgba(0, 0, 0, 0.5); */
+    border: 1px solid rgba(162, 162, 162, 0.2);
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     font-size: 13px;
     font-weight: 500;
     position: absolute;
-    width: max-content;
+    font-family: var(--font-mono);
 
     z-index: 1;
-    border-radius: 4px;
+    border-radius: 6px;
 
     &:hover {
         /* background: rgba(255, 255, 255, 0.2); */
@@ -282,11 +194,8 @@ const LargeText = styled.p`
     font-size: clamp(1.8rem, 6vw, 5rem);
     font-weight: 300;
     line-height: 1.45;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-serif);
+    font-family: var(--font-display);//var(--font-serif);
+    text-align: center;
 `;
 
 const ContactNowButton = styled.button`
@@ -300,7 +209,7 @@ const ContactNowButton = styled.button`
     border-radius: 999px;
     position: absolute;
     left: 50%;
-    top: calc(100%);
+    top: calc(100% + 84px);
     transform: translate(-50%, 50%);
     opacity: 1;
     width: 28px;
