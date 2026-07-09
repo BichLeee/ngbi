@@ -85,7 +85,7 @@ export const Skills = () => {
                             start: "top+=100px top",
                             end: "bottom",
                             scrub: true,
-                            markers: true,
+                            // markers: true,
                             toggleActions: "play none none reverse",
                         },
                     });

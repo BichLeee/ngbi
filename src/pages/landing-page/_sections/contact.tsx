@@ -37,7 +37,7 @@ export const Contact = () => {
                             start: `top-=${startPos}px top`,
                             end: "top top",
                             toggleActions: "play none none reverse",
-                            markers: true,
+                            // markers: true,
                         },
                     },
                 );
