@@ -44,19 +44,11 @@ export const Banner = () => {
 
             const letters = nameRef.current?.querySelectorAll(".name-letter");
             if (letters?.length) {
-                gsap.fromTo(
-                    letters,
-                    { y: 90, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1.6, stagger: 0.055, ease: "expo.out", delay: nd },
-                );
+                gsap.fromTo(letters, { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, stagger: 0.055, ease: "expo.out", delay: nd });
             }
             const words = tagRef.current?.querySelectorAll(".tagline-word");
             if (words?.length) {
-                gsap.fromTo(
-                    words,
-                    { y: 18, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.9, stagger: 0.045, ease: "power3.out", delay: td },
-                );
+                gsap.fromTo(words, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.045, ease: "power3.out", delay: td });
             }
         },
         { scope: heroRef },
@@ -156,9 +148,7 @@ const HeroTagline = styled.p`
     padding-bottom: 4px;
     flex-shrink: 0;
     @media (max-width: 600px) {
-        .hero-tagline {
-            display: none;
-        }
+        display: none;
     }
 `;
 

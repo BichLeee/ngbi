@@ -19,7 +19,7 @@ export const AboutMe = () => {
     useGSAP(
         () => {
             gsap.fromTo(
-                secRef.current?.querySelector(".section-heading") as HTMLElement,
+                ".section-heading",
                 { y: 50, opacity: 0 },
                 {
                     y: 0,

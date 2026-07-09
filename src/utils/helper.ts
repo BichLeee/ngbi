@@ -13,3 +13,7 @@ export function useDebounce(value: any, delay: number) {
 
     return debounceValue;
 }
+
+export function checkDesktopWidth() {
+    return window.innerWidth > 1024;
+}

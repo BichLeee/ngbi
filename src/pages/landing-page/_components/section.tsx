@@ -11,7 +11,7 @@ export const Section = ({
     headingProps = {},
 }: {
     secRef?: React.RefObject<HTMLElement | null> | null;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     heading?: React.ReactNode | null;
     preHeading?: React.ReactNode | null;
     headingProps?: React.HTMLAttributes<HTMLHeadingElement>;
