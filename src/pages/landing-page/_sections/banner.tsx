@@ -2,6 +2,7 @@ import styled from "styled-components";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useContext, useRef } from "react";
+import banner from "@/assets/images/banner2.jpg";
 
 import { AppContext } from "@/contexts/appContext";
 
@@ -106,7 +107,7 @@ const HeroImage = styled.img`
     object-fit: cover;
     object-position: center top;
     transform: scale(1.1);
-    object-position: center bottom;
+    object-position: center center;
 `;
 
 const HeroOverlay = styled.div`

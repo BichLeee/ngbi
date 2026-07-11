@@ -14,6 +14,8 @@ import IconEmployee from "./icon-employee.svg";
 import IconEmployer from "./icon-employer.svg";
 import IconAdmin from "./icon-admin.svg";
 import ArrowLeft from "./arrow-left.svg";
+import IconBriefcase from "./icon-briefcase.svg";
+import IconCode from "./icon-code.svg";
 
 export {
     LogoInstagram,
@@ -32,4 +34,6 @@ export {
     IconEmployee,
     IconEmployer,
     IconAdmin,
+    IconBriefcase,
+    IconCode,
 };

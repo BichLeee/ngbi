@@ -7,64 +7,73 @@ import { useGSAP } from "@gsap/react";
 import { Typography } from "components/elements";
 import drcom_logo from "assets/images/drcom-logo.png";
 import avianjet_logo from "assets/images/avian-logo-alt2.jpg";
+import { ParallaxBand } from "@/components/modules";
 
 const WorkingExperiences = () => {
     return (
         <>
-            <Typography color="#ffffffb3" variant="body3" weight="medium" bottom={100}>
-                This section highlights my hands-on experience as a Frontend Developer, where I’ve transformed designs into performant, scalable interfaces. My
-                experience focuses on building responsive, user-friendly interfaces with modern technologies, while collaborating closely with designers and
-                backend teams to deliver high-quality products.
-            </Typography>
+            <CenterContent>
+                <Typography color="#ffffffb3" variant="body3" weight="medium" bottom={100}>
+                    This section highlights my hands-on experience as a Frontend Developer, where I’ve transformed designs into performant, scalable interfaces.
+                    My experience focuses on building responsive, user-friendly interfaces with modern technologies, while collaborating closely with designers
+                    and backend teams to deliver high-quality products.
+                </Typography>
+            </CenterContent>
 
-            <Flex align="center" justify="center" gap={40}>
-                <img src={drcom_logo} height={80} />
-                <img src={avianjet_logo} height={80} style={{ borderRadius: 4 }} />
-            </Flex>
+            <CenterContent style={{marginBottom: 100}}>
+                <img src={avianjet_logo} height={80} style={{ borderRadius: 4, marginTop: 100 }} />
+                <Typography variant="body2" weight="medium" top={20}>
+                    Avian Solutions
+                </Typography>
+                <Typography variant="body3" top={8} weight="medium">
+                    Frontend Developer
+                </Typography>
+                <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
+                    <BoldText>Avian Solutions</BoldText> is a technology and design company focused on the <BoldText>aviation industry</BoldText>, crafting
+                    AI-infused software, mobile and web applications, and user-centric digital experiences to help aviation businesses operate more efficiently
+                    and innovatively.
+                </Typography>
+                <Typography color="#ffffffb3" variant="body3" weight="medium" top={40}>
+                    The company has both outsourcing and production projects, relating to managing customer flight bookings.
+                </Typography>
+                <Typography color="#ffffffb3" variant="body3" weight="medium" top={40}>
+                    Tech stack
+                    <br />
+                    <BoldText>Reactjs, Javascript, Typescript, Nextjs, Ant Design, Styled Component, Module CSS, Bitbucket.</BoldText>
+                </Typography>
+                <Typography color="#ffffffb3" weight="medium" top={24}>
+                    (12/2024 - Present)
+                </Typography>
 
-            <Typography variant="body2" weight="medium" top={100}>
-                Avian Solutions
-            </Typography>
-            <Typography variant="body3" top={8} weight="medium">
-                Frontend Developer
-            </Typography>
-            <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
-                <BoldText>Avian Solutions</BoldText> is a technology and design company focused on the <BoldText>aviation industry</BoldText>, crafting
-                AI-infused software, mobile and web applications, and user-centric digital experiences to help aviation businesses operate more efficiently and
-                innovatively.
-            </Typography>
-            <Typography color="#ffffffb3" variant="body3" weight="medium" top={40}>
-                The company has both outsourcing and production projects, relating to managing customer flight bookings.
-            </Typography>
-            <Typography color="#ffffffb3" variant="body3" weight="medium" top={40}>
-                Tech stack
-                <br />
-                <BoldText>Reactjs, Javascript, Typescript, Nextjs, Ant Design, Styled Component, Module CSS, Bitbucket.</BoldText>
-            </Typography>
-            <Typography color="#ffffffb3" weight="medium" top={24}>
-                (12/2024 - Present)
-            </Typography>
+                <img src={drcom_logo} height={80} style={{ marginTop: 100 }} />
+                <Typography variant="body2" weight="medium" top={20}>
+                    DrCom
+                </Typography>
+                <Typography variant="body3" top={8} weight="medium">
+                    Intern Developer
+                </Typography>
+                <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
+                    <BoldText>DrCom Group</BoldText> is a global life-science marketing agency specializing in digital and omnichannel communication for
+                    <BoldText> healthcare brands</BoldText>.
+                </Typography>
+                <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
+                    I worked for outsourcing projects which are mostly use <BoldText>CMS Drupal</BoldText> to create websites about healthcare, customized
+                    components using HTML, CSS, JS following customer's requirements.
+                </Typography>
+                <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
+                    Besides, I sometimes made advertisement banner by Google Web Designer, or did photoshop.
+                </Typography>
+                <Typography color="#ffffffb3" weight="medium" top={24}>
+                    (08/2023 - 03/2024)
+                </Typography>
+            </CenterContent>
 
-            <Typography variant="body2" weight="medium" top={100}>
-                DrCom
-            </Typography>
-            <Typography variant="body3" top={8} weight="medium">
-                Intern Developer
-            </Typography>
-            <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
-                <BoldText>DrCom Group</BoldText> is a global life-science marketing agency specializing in digital and omnichannel communication for
-                <BoldText> healthcare brands</BoldText>.
-            </Typography>
-            <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
-                I worked for outsourcing projects which are mostly use <BoldText>CMS Drupal</BoldText> to create websites about healthcare, customized
-                components using HTML, CSS, JS following customer's requirements.
-            </Typography>
-            <Typography color="#ffffffb3" variant="body3" weight="medium" top={16}>
-                Besides, I sometimes made advertisement banner by Google Web Designer, or did photoshop.
-            </Typography>
-            <Typography color="#ffffffb3" weight="medium" top={24}>
-                (08/2023 - 03/2024)
-            </Typography>
+            {/* <ParallaxBand
+                src={"https://images.unsplash.com/photo-1520583457224-aee11bad5112?w=1400&h=900&fit=crop&auto=format"}
+                alt="Developer workspace"
+                height="44vh"
+                overlayOpacity={0.7}
+            /> */}
         </>
     );
 };
@@ -87,7 +96,7 @@ export const Experience = () => {
         },
         {
             scope: containerRef,
-        }
+        },
     );
 
     return (
@@ -104,17 +113,20 @@ export const Experience = () => {
 };
 
 const Container = styled.div`
-    max-width: 900px;
-    padding-inline: var(--page-padding-inline);
-    padding-block: var(--page-padding-block);
-    margin: 0 auto;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
+    padding-block: var(--page-padding-block);
+`;
+
+const CenterContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    max-width: 900px;
+    padding-inline: var(--page-padding-inline);
+    margin: 0 auto;
 `;
 
 const Title = styled.div`

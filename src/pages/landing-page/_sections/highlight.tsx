@@ -28,13 +28,6 @@ const HIGHLIGHTS = [
         period: "Dec 2024 – Present",
         desc: "Building scalable React and Next.js apps with TypeScript. Implementing design systems and collaborating across teams.",
     },
-    {
-        type: "Project",
-        title: "Oakame",
-        org: "Personal Project",
-        period: "2024",
-        desc: "E-commerce platform with product catalog, shopping cart, and admin dashboard built with React and Ant Design.",
-    },
 ];
 
 export const Highlight = () => {

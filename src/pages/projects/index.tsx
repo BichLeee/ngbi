@@ -30,13 +30,14 @@ const Project = ({ project, onClick }: any) => {
                 {project.link && (
                     <div>
                         <Button
-                            variant="secondary"
+                            variant="link"
                             onClick={() => {
                                 window.open(project.link, "_blank");
                             }}
                             size="small"
+                            style={{ fontSize: 12 }}
                         >
-                            Visit site
+                            Open ↗
                         </Button>
                     </div>
                 )}
@@ -74,7 +75,7 @@ const ProjectDrawer = () => {
             <ProjectTitle>{projectObj?.title}</ProjectTitle>
             <div style={{ maxWidth: 1200, marginInline: "auto" }}>
                 <Flex justify="end">
-                    <Button onClick={() => window.open(projectObj?.link, "_blank")}>Preview site</Button>
+                    <Button onClick={() => window.open(projectObj?.link, "_blank")}>Preview site ↗</Button>
                 </Flex>
                 <Typography variant="label1" color="#000" weight="semibold" top={20}>
                     Project overview
@@ -240,9 +241,9 @@ const DrawerHeader = styled.div`
 
 const CloseButton = styled.div`
     background: #000;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;

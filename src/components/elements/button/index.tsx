@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 type ButtonType = Omit<ButtonProps, "variant"> & {
     children?: React.ReactNode;
-    variant?: "primary" | "default" | "secondary";
+    variant?: "primary" | "default" | "secondary" | "link";
     className?: string;
     size?: "small" | "medium" | "large";
 };
@@ -41,6 +41,17 @@ const StyledButton = styled(AntButton)`
         &:hover {
             background: rgba(0, 0, 0, 0.2) !important;
             color: #000 !important;
+        }
+    }
+
+    &.ngbi-link {
+        background: transparent !important;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 0;
+
+        &:hover {
+            border-bottom: 1px solid #fff !important;
         }
     }
 `;

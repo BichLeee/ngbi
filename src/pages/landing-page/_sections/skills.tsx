@@ -122,7 +122,7 @@ export const Skills = () => {
                     tl.to(
                         ".contact-now-button",
                         {
-                            top: "calc(100% + 80vh)",
+                            top: "calc(100% + 75vh)",
                             duration: 0.2,
                         },
                         "<",
@@ -254,8 +254,8 @@ const ContactNowButton = styled.button`
     border-radius: 999px;
     position: absolute;
     left: 50%;
-    top: calc(100% + 150px);
-    transform: translate(-50%, 50%);
+    top: calc(100% + 154px);
+    transform: translate(-50%, 0);
     opacity: 1;
     width: 28px;
     height: 28px;

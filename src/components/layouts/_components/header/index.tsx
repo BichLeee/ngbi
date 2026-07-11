@@ -1,18 +1,16 @@
 import { useContext, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import * as Tabs from "@radix-ui/react-tabs";
 
 import { AppContext } from "@/contexts/appContext";
-import { Experience, LandingPage } from "@/pages";
-import { Projects } from "@/pages/projects";
 import { ROUTES } from "@/utils/route";
 
 export const Header = () => {
-    const navRef = useRef<HTMLElement>(null);
+    const navRef = useRef<HTMLDivElement>(null);
     const navigate = useNavigate();
+    const route = useLocation();
     // const { introHasPlayed } = useContext(AppContext);
 
     useGSAP(
@@ -71,36 +69,33 @@ export const Header = () => {
     );
 
     return (
-        <AppRoot value={ROUTES.LANDING} onValueChange={(value) => navigate(value)}>
+        <Container>
             <AppNav ref={navRef}>
                 {/* Plain button — Tabs.Trigger outside Tabs.List causes RovingFocusGroup error */}
                 <AppNavLogo onClick={() => navigate("/")}>ng&apos;bi</AppNavLogo>
                 <AppNavList>
-                    <AppNavTrigger value={ROUTES.LANDING}>Overview</AppNavTrigger>
-                    <AppNavTrigger value={ROUTES.EXPERIENCE}>Experience</AppNavTrigger>
-                    <AppNavTrigger value={ROUTES.PROJECTS}>Projects</AppNavTrigger>
+                    <StyledNavLink to={ROUTES.LANDING} className={route.pathname === ROUTES.LANDING ? "active" : ""}>
+                        Overview
+                    </StyledNavLink>
+                    <StyledNavLink to={ROUTES.EXPERIENCE} className={route.pathname === ROUTES.EXPERIENCE ? "active" : ""}>
+                        Experience
+                    </StyledNavLink>
+                    <StyledNavLink to={ROUTES.PROJECTS} className={route.pathname === ROUTES.PROJECTS ? "active" : ""}>
+                        Projects
+                    </StyledNavLink>
                 </AppNavList>
             </AppNav>
-            <Tabs.Content value="overview">
-                <LandingPage />
-            </Tabs.Content>
-            <Tabs.Content value="experience">
-                <Experience />
-            </Tabs.Content>
-            <Tabs.Content value="projects">
-                <Projects />
-            </Tabs.Content>
-        </AppRoot>
+        </Container>
     );
 };
 
-const AppRoot = styled(Tabs.Root)`
+const Container = styled.div`
     background: var(--bg);
     color: var(--fg);
     /* min-height: 100vh; */
 `;
 
-const AppNav = styled.nav`
+const AppNav = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -129,7 +124,7 @@ const AppNavLogo = styled.button`
     }
 `;
 
-const AppNavList = styled(Tabs.List)`
+const AppNavList = styled.div`
     display: flex;
     align-items: center;
     gap: 4px;
@@ -138,7 +133,7 @@ const AppNavList = styled(Tabs.List)`
     box-shadow: none;
 `;
 
-const AppNavTrigger = styled(Tabs.Trigger)`
+const StyledNavLink = styled(NavLink)`
     padding: 5px 13px;
     font-size: 13px;
     text-transform: capitalize;
@@ -154,7 +149,7 @@ const AppNavTrigger = styled(Tabs.Trigger)`
     &:hover {
         color: rgba(255, 255, 255, 0.78);
     }
-    &[data-state="active"] {
+    &.active {
         color: white;
         border-bottom-color: white;
     }
