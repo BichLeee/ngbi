@@ -98,7 +98,7 @@ export const Skills = () => {
                         ".skill-box",
                         {
                             left: "calc(50% - 14px)",
-                            top: "calc(100% + 100px)",
+                            top: "calc(100%)",
                             width: "28px",
                             height: "28px",
                             boxShadow: "rgba(0,0,0,.03) 0 0 0 6px",
@@ -122,7 +122,7 @@ export const Skills = () => {
                     tl.to(
                         ".contact-now-button",
                         {
-                            top: "calc(100% + 75vh)",
+                            top: "calc(100% + 630px)",
                             duration: 0.2,
                         },
                         "<",
@@ -159,7 +159,7 @@ export const Skills = () => {
 
     return (
         <Wrapper className="skills-section">
-            <Container ref={secRef} style={{ height: isDesktop ? "100vh" : "fit-content" }}>
+            <Container ref={secRef} className={isDesktop ? "desktop-height" : "mobile-height"}>
                 {/* <Section heading="Work With" preHeading="What I"/> */}
                 {/* <LargeText>What I Work With</LargeText> */}
                 <SectionHeading className="section-heading">
@@ -203,17 +203,26 @@ export const Skills = () => {
 const Wrapper = styled.div`
     background: #000;
     padding: var(--section-py) var(--px);
-    padding-bottom: 0px;
-    height: fit-content;
-    padding-bottom: 100px;
+    /* padding-bottom: 0px; */
+    height: 100%;
+    min-height: 100vh;
+    /* padding-bottom: 100px; */
 `;
 
 const Container = styled.div`
     max-width: var(--max);
     margin: 0 auto;
     position: relative;
-    height: 100vh;
     padding-top: 100px;
+
+    .desktop-height {
+        height: 100%;
+        min-height: 100vh;
+    }
+
+    .mobile-height {
+        height: fit-content;
+    }
 `;
 
 const SkillBox = styled.div`
@@ -235,13 +244,13 @@ const SkillBox = styled.div`
     }
 `;
 
-const LargeText = styled.p`
-    font-size: clamp(1.8rem, 6vw, 5rem);
-    font-weight: 300;
-    line-height: 1.45;
-    font-family: var(--font-display); //var(--font-serif);
-    text-align: center;
-`;
+// const LargeText = styled.p`
+//     font-size: clamp(1.8rem, 6vw, 5rem);
+//     font-weight: 300;
+//     line-height: 1.45;
+//     font-family: var(--font-display); //var(--font-serif);
+//     text-align: center;
+// `;
 
 const ContactNowButton = styled.button`
     background: rgba(255, 255, 255, 0.7);
@@ -254,7 +263,7 @@ const ContactNowButton = styled.button`
     border-radius: 999px;
     position: absolute;
     left: 50%;
-    top: calc(100% + 154px);
+    top: calc(100%);
     transform: translate(-50%, 0);
     opacity: 1;
     width: 28px;

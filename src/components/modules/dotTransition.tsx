@@ -98,7 +98,7 @@ export const DotTransition = () => {
 const DotTransitionWrapper = styled.div`
     position: relative;
     height: 160px;
-    background: var(--bg);
+    /* background: var(--bg); */
     display: flex;
     align-items: center;
     justify-content: center;
